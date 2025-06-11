@@ -421,16 +421,16 @@ body {
     display: block;
     opacity: 0;
     /* estado base */
-    animation: crossfade3 12s infinite;
+    animation: crossfade3 6s infinite;
 }
 
 /* Desfase de cada frame (12 s / 3 = 4 s) */
 .frame-2 {
-    animation-delay: 4s;
+    animation-delay: 2s;
 }
 
 .frame-3 {
-    animation-delay: 8s;
+    animation-delay: 4s;
 }
 
 /* Frame-1 no necesita delay (0 s) */
