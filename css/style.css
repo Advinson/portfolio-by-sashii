@@ -1,0 +1,611 @@
+@font-face {
+    font-family: 'Caldina';
+    src: url('../fonts/caldina/CaldinaLight.woff2') format('woff2'),
+        url('../fonts/caldina/CaldinaLight.woff') format('woff');
+    font-weight: 300;
+    /* Light */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('../fonts/caldina/CaldinaRegular.woff2') format('woff2'),
+        url('../fonts/caldina/CaldinaRegular.woff') format('woff');
+    font-weight: 400;
+    /* Regular */
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('../fonts/caldina/CaldinaBold.woff2') format('woff2'),
+        url('../fonts/caldina/CaldinaBold.woff') format('woff');
+    font-weight: 700;
+    /* Bold */
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ───── VARIABLES DE COLOR ───── */
+:root {
+    --primary: #d60052;
+    /* rosa intenso */
+    --black: #000;
+    --white: #fff;
+    --gray: #f5f5f5;
+
+    --font-display: 'Caldina', serif;
+    --font-sans: 'Open Sans', sans-serif;
+}
+
+
+/* Reset rápido extra */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--white);
+    color: var(--black);
+    font-family: var(--font-display);
+    overflow-x: hidden;
+}
+
+/* ===== SIDEBAR (versión final) ===== */
+#sidebar {
+    width: 100px;
+    min-height: 100vh;
+    background: var(--gray);
+    border-right: 3px solid var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 1.5rem;
+}
+
+/* Botón de idioma (píldora redonda) */
+.lang-pill {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: .85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lista vertical */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#sidebar li {
+    display: flex;
+    justify-content: center;
+}
+
+#sidebar .lang-pill {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: var(--white);
+    border: 0;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: .8rem;
+}
+
+.nav-btn {
+    width: 65px;
+    height: 65px;
+    background: var(--white);
+    border: 3px solid var(--black);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .2rem;
+    font-size: .6rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--primary);
+    transition: .25s;
+}
+
+.nav-btn i {
+    font-size: 1.9rem;
+}
+
+.nav-btn.active,
+.nav-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.nav-btn.active i,
+.nav-btn:hover i {
+    color: var(--white);
+}
+
+
+
+/* ===== MAIN CONTENT ===== */
+#home {
+    margin-top: 3rem;
+}
+
+#main-content {
+    background: var(--gray);
+    flex-grow: 1;
+}
+
+/* ---------- HERO box ---------- */
+.home-box {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--black);
+    border-radius: 12px;
+    background: var(--white);
+    padding: 4rem 3rem;
+    /* ↑ padding vertical extra */
+    min-height: 75vh;
+    /* da sensación de cuadrado */
+    display: flex;
+    /* centra internamente si sobra alto */
+    align-items: center;
+    /* elimina el espacio entre columnas */
+}
+
+
+@media (min-width:992px) {
+    .home-box {
+        padding: 4rem 3rem;
+    }
+}
+
+
+
+/* Títulos */
+.hero-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    /* light */
+    font-size: clamp(2.5rem, 3.5vw + 1rem, 4.2rem);
+    line-height: 1.1;
+    margin-bottom: 1.25rem;
+}
+
+.hero-title strong {
+    display: block;
+    font-weight: 700;
+    /* bold */
+    font-size: 1.13em;
+    /* un poco mayor que línea 1 */
+}
+
+
+/* Párrafo */
+.hero-lead {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    max-width: 520px;
+    text-align: justify;
+}
+
+
+/* Botones */
+.btn-home,
+.btn-home-outline {
+    width: 200px;
+    min-height: 48px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: .93rem;
+    border: 3px solid var(--black);
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .25s;
+}
+
+.btn-home {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-home-outline {
+    background: var(--white);
+    color: var(--primary);
+}
+
+.btn-home:hover,
+.btn-home-outline:hover {
+    opacity: .85;
+}
+
+
+
+.home-box .col-lg-5 {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-right: 0;
+    bottom: 0;
+    right: 0;
+}
+
+/* Imagen – altura controlada para que encaje */
+.hero-img {
+    max-height: 680px;
+    width: auto;
+}
+
+
+@media (max-width: 991.98px) {
+    .hero-img {
+        position: static;
+        height: auto;
+        max-height: 573px;
+        /* tu valor anterior */
+        margin-top: 1.5rem;
+    }
+}
+
+
+
+/* Breakpoint tablet/desktop */
+@media (max-width: 991.98px) {
+    .home-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .hero-img {
+        max-height: 380px;
+        margin-top: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-lead {
+        font-size: 1.05rem;
+    }
+}
+
+
+
+
+
+/* ───────── PORTFOLIO ───────── */
+/* Marco negro (ya existía, sólo ajuste de padding) */
+.portfolio-box {
+    border: 3px solid var(--black);
+    border-radius: 12px;
+    background: var(--white);
+    overflow-y: auto;
+    max-height: 90vh;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+/* Marco rojo interno */
+.inner-frame {
+    position: relative;
+    border: 3px solid var(--primary);
+    border-radius: 4px;
+    padding: 2rem 1.5rem 2.5rem;
+    /* fondo + espacio inferior */
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+@media(min-width:992px) {
+    .portfolio-box {
+        padding: 3rem 2rem;
+    }
+}
+
+/* Imagen hero siempre 100 % */
+.portfolio-hero {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Flecha scroll */
+.scroll-hint i {
+    font-size: 3rem;
+    color: var(--primary);
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Estética del scrollbar (opcional, WebKit) */
+.portfolio-box::-webkit-scrollbar {
+    width: 20px;
+}
+
+.portfolio-box::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+
+
+
+
+/* ───── Tabs chapters ───── */
+.chapter-nav {
+    position: absolute;
+    top: -40px;
+    left: -3px;
+    display: flex;
+    gap: .25rem;
+    z-index: 2;
+}
+
+
+
+.chapter-btn {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    padding: .35rem 1.1rem;
+    border: 3px solid var(--black);
+    border-bottom: none;
+    /* se fusiona con el marco */
+    background: var(--white);
+    transition: .25s;
+}
+
+.chapter-btn.active,
+.chapter-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+
+
+/* Paneles (animación ya existente) */
+
+.chapter-head .ch-number {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.chapter-head .ch-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 1.05;
+    margin: .25rem 0 .75rem;
+}
+
+.chapter-head .ch-desc {
+    max-width: 480px;
+    font-size: 1rem;
+}
+
+@media(min-width:992px) {
+    .chapter-head .ch-title {
+        font-size: 3.5rem;
+    }
+}
+
+
+/* ───── Cards ───── */
+
+/* Panel (oculto por defecto) */
+.chapter-panel {
+    display: none;
+    opacity: 0;
+    transform: translateX(40px);
+}
+
+/* Panel visible */
+.chapter-panel.active {
+    display: block;
+    opacity: 1;
+    transform: none;
+    transition: opacity .5s ease, transform .5s ease;
+}
+
+.pf-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border: 2px solid var(--black);
+    border-radius: 6px;
+}
+
+.pf-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .35s ease;
+}
+
+.pf-label {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: .5rem .75rem;
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.pf-card:hover .pf-img {
+    transform: scale(1.05);
+}
+
+/* Ajusta alto mínimo para pantallas grandes */
+@media(min-width:992px) {
+    .chapter-panel {
+        min-height: 320px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background: var(--black);
+    color: var(--white);
+    border-top: 3px solid var(--black);
+    font-size: .9rem;
+}
+
+.site-footer em {
+    font-style: italic;
+}
+
+.social-link i {
+    font-size: 1.25rem;
+    color: var(--white);
+    transition: transform .25s ease;
+}
+
+.social-link:hover i {
+    transform: scale(1.15);
+}
+
+.circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #4a4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== SECCIONES OCULTAS ===== */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+
+
+/* ───────── DOODLES ───────── */
+.doodle-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    /* contenido irá encima */
+    overflow: hidden;
+}
+
+.doodle {
+    position: fixed;
+    /* cada doodle se mide al viewport */
+    opacity: .15;
+    animation: drift 18s linear infinite;
+}
+
+@keyframes drift {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-40px) rotate(12deg);
+    }
+}
+
+.home-box {
+    position: relative;
+    z-index: 1;
+}
+
+/* asegura superposición */
+
+/* un pelín más visibles en pantallas grandes */
+@media (min-width:1400px) {
+    .doodle {
+        opacity: .25;
+    }
+}
+
+
+
+/* ───────── FADE-SLIDE ANIMATION ───────── */
+
+/* estado inicial al entrar */
+.section-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* estado final (visible) */
+.section-enter-active {
+    transition: opacity .45s ease, transform .45s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* al salir */
+.section-leave {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-leave-active {
+    transition: opacity .35s ease, transform .35s ease;
+    opacity: 0;
+    transform: translateY(-20px);
+}

@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+:root {
+    --amarillo: #f9b23a;
+    --rojo: #cb2914;
+    --negro: #000000;
+    --blanco: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    margin: 0;
+    background-color: var(--negro);
+    color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-exacto {
+    background-color: var(--negro);
+    border-bottom: 2px solid var(--rojo);
+    height: 100px;
+    position: relative;
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* CENTRADO exacto del bloque de flechas + texto */
+.nav-arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-title {
+    text-align: center;
+    line-height: 1.1;
+}
+
+.nav-title .label {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+
+.nav-title .title {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Iconos alineados a la derecha */
+.nav-icons {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+}
+
+
+
+/* HERO */
+.hero-section {
+    position: relative;
+    border-bottom: 2px solid var(--rojo);
+    margin-bottom: 0;
+    overflow: hidden;
+}
+
+/* Texto superior */
+.edition-text {
+    top: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.edition-label,
+.edition-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.5rem;
+    color: var(--blanco);
+    text-transform: uppercase;
+}
+
+.edition-number {
+    margin-left: 0.5rem;
+}
+
+.hero-img {
+    max-width: 70%;
+    height: auto;
+    z-index: 2;
+    margin-top: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+
+.hero-left-nav .left-square {
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #ff0000;
+    background: linear-gradient(90deg, rgb(133, 1, 1) 0%, rgb(252, 46, 46) 100%);
+    border-radius: 0;
+}
+
+.hero-left-nav .left-square.active {
+    width: 12px;
+    height: 12px;
+    background: #ff0000;
+    background: linear-gradient(90deg, rgb(133, 1, 1) 0%, rgb(252, 46, 46) 100%);
+    box-sizing: border-box;
+}
+
+.hero-left-nav {
+    gap: 0.75rem;
+}
+
+
+/* Numeración vertical derecha */
+.nav-numbers {
+    z-index: 3;
+}
+
+.number-btn {
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.number-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--rojo);
+    transition: width 0.3s;
+}
+
+.number-btn.active {
+    color: var(--rojo);
+}
+
+.number-btn.active::after {
+    width: 100%;
+}
+
+
+/* ─────────────────────────── */
+/* SECCIÓN – SOBRE EL PROYECTO */
+/* ─────────────────────────── */
+.sobre-proyecto {
+    background: var(--negro);
+    color: var(--blanco);
+    --bs-border-opacity: 1;
+    --bs-border-danger-gg: var(--rojo);
+    overflow: visible;
+    padding-top: 1rem;
+    border-bottom: 2px solid var(--rojo);
+
+}
+
+.sobre-proyecto p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+}
+
+/* Título */
+.seccion-titulo {
+    font-family: 'Anton', sans-serif;
+    font-size: 4rem;
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 1.3;
+    color: var(--rojo);
+
+}
+
+/* Badges */
+.skill-badge {
+    --size: 70px;
+    width: var(--size);
+    height: var(--size);
+
+    transition: transform .3s ease;
+}
+
+.skill-badge:hover {
+
+    transform: rotate(0deg) scale(1.2);
+}
+
+.skill-icon {
+    width: 100%;
+    height: auto;
+}
+
+/* Mock-up */
+.magazine-col {
+    position: relative;
+    z-index: 2;
+}
+
+
+.magazine-wrapper {
+
+    max-width: 300px;
+    transform: rotate(-6deg);
+    transition: transform .3s ease;
+}
+
+/* Efecto al pasar el cursor */
+.magazine-wrapper:hover {
+    transform: rotate(0deg) scale(1.07);
+}
+
+/* Imagen siempre al 100 % dentro del wrapper */
+.magazine-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* elimina el pequeño espacio inline */
+}
+
+
+.sobre-proyecto .row {
+    /* valor base para ≥576px (sm) */
+    --bs-gutter-x: 7rem;
+    /* 32px */
+}
+
+/* Posicionamiento flotante solo en pantallas ≥992 px */
+@media (min-width: 992px) {
+    .magazine-wrapper {
+        max-width: 300px;
+        position: absolute;
+        top: -3px;
+        /* sobresale hacia el héroe */
+    }
+}
+
+/* Aún más grande en XL (≥ 1200 px) */
+@media (min-width: 1200px) {
+    .magazine-wrapper {
+        max-width: 300px;
+        top: -210px;
+    }
+}
+
+
+
+
+/* MINI SECTION – CROSSHAIRS */
+.crosshair-divider {
+    padding: 0;
+    background: var(--negro);
+    overflow: visible;
+
+
+}
+
+.crosshair-divider .row {
+    gap: 12rem;
+}
+
+
+
+/* Tamaño base del crosshair */
+.crosshair {
+    width: 64px;
+    height: 64px;
+    position: relative;
+    top: -50%;
+    /* hace que el centro del icono se alinee con la línea */
+    z-index: 2;
+    /* por encima de la línea */
+}
+
+
+
+/* Opcional: agrandar a partir de 992 px para más protagonismo */
+@media (min-width: 992px) {
+    .crosshair {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+        /* reajusta para mantener la alineación */
+    }
+
+    .crosshair-divider {
+        height: 1px;
+    }
+}
+
+
+
+
+
+/* ─────────────────────────── */
+/* SECCIÓN – GALERÍA MOCK-UPS  */
+/* ─────────────────────────── */
+.mockups-gallery {
+    background: var(--negro);
+    /* mismo fondo negro */
+    overflow: hidden;
+    /* por si alguna imagen se anima y sale */
+}
+
+/* Asegura que no haya espacio entre celdas (ya usamos gx-0) */
+.mockups-gallery .row {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+}
+
+/* Todas las imágenes: cubren su contenedor */
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* recorta para llenar sin deformar */
+    display: block;
+    /* elimina espacio inline */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto sutil al pasar el cursor (solo desktop) */
+@media (hover:hover) {
+    .gallery-img:hover {
+        transform: scale(1.03);
+    }
+}
+
+/* Alturas iguales en la columna derecha */
+@media (min-width: 992px) {
+    .mockups-gallery .flex-fill {
+        min-height: 50%;
+        /* cada imagen ocupa la mitad exacta */
+    }
+}
+
+
+
+/* Mock-up full-width */
+.mockup-full {
+    background: var(--negro);
+    overflow: hidden;
+}
+
+.mockup-full-img {
+    width: 100%;
+    height: auto;
+    /* responde al ancho */
+    display: block;
+}
+
+
+
+
+/* ─────────────────────────── */
+/* SECCIÓN – GALERÍA ANIMADA   */
+/* ─────────────────────────── */
+.mockup-split {
+    background: var(--negro);
+}
+
+/* Reutiliza la regla .gallery-img del mosaico anterior */
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+/* ----------------------------------
+   ANIMACIÓN – Cross-fade entre frames
+---------------------------------- */
+.loop-wrapper {
+    position: relative;
+}
+
+.loop-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    /* estado base */
+    animation: crossfade3 12s infinite;
+}
+
+/* Desfase de cada frame (12 s / 3 = 4 s) */
+.frame-2 {
+    animation-delay: 4s;
+}
+
+.frame-3 {
+    animation-delay: 8s;
+}
+
+/* Frame-1 no necesita delay (0 s) */
+
+/* Keyframes: cada imagen visible ~30 % del ciclo */
+@keyframes crossfade3 {
+
+    0%,
+    30% {
+        opacity: 1;
+    }
+
+    /* visible             */
+    33.33%,
+    100% {
+        opacity: 0;
+    }
+
+    /* se desvanece y queda oculta */
+}
+
+/* Keyframes: opacidad 1 → 0 → 1 */
+@keyframes crossfade {
+
+    0%,
+    40% {
+        opacity: 1;
+    }
+
+    50%,
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* Igual altura de ambas columnas en desktop */
+@media (min-width: 992px) {
+    .mockup-split .row>[class*="col-lg"] {
+        min-height: 480px;
+        /* altura mínima; ajuste según diseño */
+    }
+}
+
+
+
+
+/* Íconos del footer */
+.social-link i {
+    font-size: 1.25rem;
+    /* ≈ 20 px */
+    color: var(--blanco);
+    transition: transform .25s ease;
+}
+
+.social-link:hover i {
+    transform: scale(1.1);
+}

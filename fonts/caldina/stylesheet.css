@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaSemiBoldItalic.eot');
+    src: local('Caldina SemiBold Italic'), local('CaldinaSemiBoldItalic'),
+        url('CaldinaSemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaSemiBoldItalic.woff2') format('woff2'),
+        url('CaldinaSemiBoldItalic.woff') format('woff'),
+        url('CaldinaSemiBoldItalic.ttf') format('truetype');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaRegular.eot');
+    src: local('Caldina Regular'), local('CaldinaRegular'),
+        url('CaldinaRegular.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaRegular.woff2') format('woff2'),
+        url('CaldinaRegular.woff') format('woff'),
+        url('CaldinaRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaLightItalic.eot');
+    src: local('Caldina Light Italic'), local('CaldinaLightItalic'),
+        url('CaldinaLightItalic.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaLightItalic.woff2') format('woff2'),
+        url('CaldinaLightItalic.woff') format('woff'),
+        url('CaldinaLightItalic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaLight.eot');
+    src: local('Caldina Light'), local('CaldinaLight'),
+        url('CaldinaLight.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaLight.woff2') format('woff2'),
+        url('CaldinaLight.woff') format('woff'),
+        url('CaldinaLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaSemiBold.eot');
+    src: local('Caldina SemiBold'), local('CaldinaSemiBold'),
+        url('CaldinaSemiBold.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaSemiBold.woff2') format('woff2'),
+        url('CaldinaSemiBold.woff') format('woff'),
+        url('CaldinaSemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaBold.eot');
+    src: local('Caldina Bold'), local('CaldinaBold'),
+        url('CaldinaBold.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaBold.woff2') format('woff2'),
+        url('CaldinaBold.woff') format('woff'),
+        url('CaldinaBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaBoldItalic.eot');
+    src: local('Caldina Bold Italic'), local('CaldinaBoldItalic'),
+        url('CaldinaBoldItalic.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaBoldItalic.woff2') format('woff2'),
+        url('CaldinaBoldItalic.woff') format('woff'),
+        url('CaldinaBoldItalic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaMediumItalic.eot');
+    src: local('Caldina Medium Italic'), local('CaldinaMediumItalic'),
+        url('CaldinaMediumItalic.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaMediumItalic.woff2') format('woff2'),
+        url('CaldinaMediumItalic.woff') format('woff'),
+        url('CaldinaMediumItalic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina Regular';
+    src: url('CaldinaRegularItalic.eot');
+    src: local('Caldina Regular Italic'), local('CaldinaRegularItalic'),
+        url('CaldinaRegularItalic.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaRegularItalic.woff2') format('woff2'),
+        url('CaldinaRegularItalic.woff') format('woff'),
+        url('CaldinaRegularItalic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caldina';
+    src: url('CaldinaMedium.eot');
+    src: local('Caldina Medium'), local('CaldinaMedium'),
+        url('CaldinaMedium.eot?#iefix') format('embedded-opentype'),
+        url('CaldinaMedium.woff2') format('woff2'),
+        url('CaldinaMedium.woff') format('woff'),
+        url('CaldinaMedium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
