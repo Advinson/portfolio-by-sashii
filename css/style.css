@@ -57,6 +57,8 @@ body {
 }
 
 /* ===== SIDEBAR (versión final) ===== */
+/* 
+
 #sidebar {
     width: 100px;
     min-height: 100vh;
@@ -67,7 +69,60 @@ body {
     align-items: center;
     gap: 1.5rem;
     padding-block: 1.5rem;
+
+} */
+
+
+#sidebar {
+    position: relative;
+    width: 100px;
+    min-height: 100vh;
+    background: var(--gray);
+    border-right: 3px solid var(--black);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 7rem;
+    z-index: 1000;
+
 }
+
+#sidebar ul.nav li:nth-child(2) {
+    margin-top: auto;
+}
+
+.nav-btn {
+    position: relative;
+}
+
+.nav-btn::after {
+    content: attr(data-tip);
+    position: absolute;
+    top: 50%;
+    /* centra verticalmente */
+    left: calc(100% + .5rem);
+    /* 0.5 rem a la derecha del borde */
+    transform: translateY(-50%);
+    /* ajusta centro-vertical */
+    background: var(--black);
+    color: var(--white);
+    padding: .2rem .65rem;
+    border-radius: 4px;
+    font: 600 .65rem/1 var(--font-sans);
+    white-space: nowrap;
+    opacity: 0;
+    /* oculto por defecto */
+    pointer-events: none;
+    transition: opacity .2s;
+}
+
+.nav-btn:hover::after {
+    opacity: 1;
+}
+
+
+
 
 /* Botón de idioma (píldora redonda) */
 .lang-pill {
@@ -118,7 +173,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: .2rem;
-    font-size: .6rem;
+    font-size: .7rem;
     font-family: var(--font-sans);
     font-weight: 700;
     color: var(--primary);
