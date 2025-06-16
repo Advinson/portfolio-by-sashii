@@ -1,4 +1,14 @@
 @font-face {
+    font-family: "More Sugar";
+    src: url("../fonts/more-sugar/MoreSugar-Regular.otf") format("woff2"),
+        url("fonts/MoreSugar-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
     font-family: 'Caldina';
     src: url('../fonts/caldina/CaldinaLight.woff2') format('woff2'),
         url('../fonts/caldina/CaldinaLight.woff') format('woff');
@@ -497,10 +507,13 @@ body {
 }
 
 
-.skills-col > .skills-pill:first-child{
-    display:block;          /* ahora ocupa una caja de bloque     */
-    width:max-content;      /* conserva su ancho natural          */
-    margin:0 auto 1.5rem;   /* auto en L/R → se centra horizontal */
+.skills-col>.skills-pill:first-child {
+    display: block;
+    /* ahora ocupa una caja de bloque     */
+    width: max-content;
+    /* conserva su ancho natural          */
+    margin: 0 auto 1.5rem;
+    /* auto en L/R → se centra horizontal */
 }
 
 
@@ -553,26 +566,37 @@ body {
 
 
 /* ─── 2 columnas para Softwares ──────────────────────────────── */
-.soft-list{
-    display:grid;
-    grid-template-columns:repeat(2, max-content);
-    column-gap:3rem;          /* separación vertical entre columnas */
+.soft-list {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 3rem;
+    /* separación vertical entre columnas */
 }
 
 /* ─── 3 columnas × 2 filas para Intereses ────────────────────── */
-.interest-list{
-    display:grid;
-    grid-template-columns:repeat(3, max-content);
-    column-gap:1rem;
-    row-gap:1rem;
-    text-align:center;        /* etiqueta + texto centrados */
+.interest-list {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    column-gap: 1rem;
+    row-gap: 1rem;
+    text-align: center;
+    /* etiqueta + texto centrados */
 }
 
-.interest-list li{flex-direction:column; gap:.25rem;} /* icono encima */
+.interest-list li {
+    flex-direction: column;
+    gap: .25rem;
+}
+
+/* icono encima */
 
 /* ─── Alineamos los dos títulos de habilidades ───────────────── */
-@media(min-width:992px){
-    .skills-col .skills-pill.mt-4{margin-top:3.75rem;} /* mismo offset */
+@media(min-width:992px) {
+    .skills-col .skills-pill.mt-4 {
+        margin-top: 3.75rem;
+    }
+
+    /* mismo offset */
 }
 
 
@@ -779,6 +803,137 @@ body {
 
 
 
+
+
+
+/* ── Titular “SERVICES” junto al “My” ─────────────────────────── */
+
+.service-box {
+    margin-top: 6rem;
+    border: 3px solid var(--black);
+    border-radius: 12px;
+    background: var(--white);
+    overflow-y: auto;
+    max-height: 120vh;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.services-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: .02em;
+}
+
+/* ── Mascota debajo del texto ---------------------------------- */
+.services-mascot{
+    display:block;
+    max-width:280px;
+    margin:2rem auto 0;        /* auto L/R → centrado horizontal */
+}
+
+/* ── Accordion personalizado ─────────────────────────────────── */
+.services-accordion .accordion-item {
+    border: 0;
+    border-bottom: 2px solid #000;
+    /* línea divisoria */
+    margin-bottom: .5rem;
+}
+
+
+.services-right{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    margin-top: 10rem;
+}
+
+.services-accordion .accordion-button {
+    background: transparent;
+    padding: .75rem 0;
+    box-shadow: none;
+    font-size: 2.1rem;
+    font-weight: 500;
+}
+
+.services-accordion .accordion-button::after {
+    display: none;
+}
+
+/* quitamos caret */
+
+.service-num {
+    font-family: "More Sugar", sans-serif;
+    font-size: 3.2rem;
+    margin-right: 1.25rem;
+    line-height: 1;
+}
+
+.service-title {
+    font-family: var(--font-display);
+}
+
+.services-accordion i.bi {
+    font-size: 2.2rem;
+    color: #000;
+    transition: transform .25s ease;
+}
+
+.accordion-button:not(.collapsed) i.bi {
+    transform: rotate(90deg);
+    /* flecha apuntando abajo */
+}
+
+/* cuerpo del acordeón */
+.accordion-body {
+    padding: 1rem 0 1.5rem 4.5rem;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: .5rem;
+}
+
+.service-list li::before {
+    content: "✦";
+    /* estrellita vino */
+    color: #a3363a;
+    /* tono primario   */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Responsive fino ------------------------------------------------*/
+@media(max-width:991.98px) {
+    .services-title {
+        font-size: 3.2rem;
+    }
+
+    .service-num {
+        font-size: 2.4rem;
+        margin-right: 1rem;
+    }
+
+    .services-accordion .accordion-button {
+        font-size: 1.6rem;
+    }
+
+    .accordion-body {
+        padding-left: 3.5rem;
+    }
+}
 
 
 
