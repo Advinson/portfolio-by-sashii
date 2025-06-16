@@ -830,10 +830,11 @@ body {
 }
 
 /* ── Mascota debajo del texto ---------------------------------- */
-.services-mascot{
-    display:block;
-    max-width:280px;
-    margin:2rem auto 0;        /* auto L/R → centrado horizontal */
+.services-mascot {
+    display: block;
+    max-width: 280px;
+    margin: 2rem auto 0;
+    /* auto L/R → centrado horizontal */
 }
 
 /* ── Accordion personalizado ─────────────────────────────────── */
@@ -845,10 +846,10 @@ body {
 }
 
 
-.services-right{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+.services-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 10rem;
 }
 
@@ -938,12 +939,149 @@ body {
 
 
 
+.shop-box {
+    margin-top: 4rem;
+    border: 3px solid var(--black);
+    border-radius: 12px;
+    background: var(--white);
+    overflow-y: auto;
+    max-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 10rem;
+}
+
+
+
+
+/* ─── Caja Contacto (reutiliza estilo de portfolio-box) ─────────── */
+.contact-box {
+    padding: 2rem;
+}
+
+.contact-row {
+    /* línea divisoria al centro en desktop */
+}
+
+@media(min-width:992px) {
+    .contact-right {
+        border-left: 3px solid #000;
+    }
+}
+
+/* ---------- texto lead rojo ------------------------------------- */
+.contact-lead {
+    color: #a3363a;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* ---------- avatar ---------------------------------------------- */
+.contact-avatar {
+    max-width: 700px;
+    width: 100%;
+    border-radius: 50%;
+    padding: 1.2rem;
+}
+
+/* ---------- formulario ------------------------------------------ */
+.contact-form .form-label {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.contact-form .form-control {
+    border: none;
+    border-bottom: 2px solid #000;
+    border-radius: 0;
+    padding-left: 0;
+    background: transparent;
+    font-size: 1.15rem;
+}
+
+.contact-form .form-control:focus {
+    box-shadow: none;
+    border-color: #a3363a;
+}
+
+/* botón rojo */
+.contact-btn {
+    background: #a3363a;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 2rem;
+}
+
+.contact-btn:hover {
+    background: #902733;
+    color: #fff;
+}
+
+/* ---------- iconos sociales ------------------------------------- */
+.social-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    font-size: 2rem;
+    color: #000;
+    transition: background .25s;
+}
+
+.social-circle:hover {
+    background: #000;
+    color: #fff
+}
 
 
 
 
 
+/* bandera junto al texto */
+.flag-icon {
+    width: 38px;
+    height: auto
+}
 
+/* avatar un poco menor para armonizar con nuevo layout (opcional) */
+.contact-avatar {
+    max-width: 720px
+}
+
+@media(max-width:991.98px) {
+    .contact-avatar {
+        max-width: 220px
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1.5rem
+    }
+}
+
+/* responsive ajuste avatar --------------------------------------- */
+@media(max-width:991.98px) {
+    .contact-avatar {
+        max-width: 220px;
+        margin-top: 2rem;
+    }
+}
+
+
+
+
+
+.shop-img{
+    max-width:80%;
+    height:auto;
+    object-fit:contain;
+}
 
 
 
@@ -970,15 +1108,7 @@ body {
     transform: scale(1.15);
 }
 
-.circle {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #4a4a4a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+
 
 /* ===== SECCIONES OCULTAS ===== */
 .content-section {
