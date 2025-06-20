@@ -1192,3 +1192,40 @@ body {
     opacity: 0;
     transform: translateY(-20px);
 }
+
+
+
+
+/* 1️⃣  Estado base: secciones ocultas */
+.content-section {
+    display: none;
+}
+
+/* 2️⃣  Sección visible después de animar */
+.content-section.active {
+    display: block;
+}
+
+/* 3️⃣  Clases de animación */
+.section-enter {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.section-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .45s ease, transform .45s ease;
+}
+
+.section-leave {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-leave-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity .35s ease, transform .35s ease;
+}
+

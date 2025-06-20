@@ -157,3 +157,46 @@ document.querySelectorAll('.chapter-btn').forEach(btn => {
     });
   });
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* -------- Navegación lateral con animación -------- */
+  const navBtns   = document.querySelectorAll('.nav-btn');
+  const sections  = document.querySelectorAll('.content-section');
+
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.classList.contains('active')) return;   // ya estamos ahí
+
+      /* – Botones */
+      navBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      /* – Secciones */
+      const current = document.querySelector('.content-section.active');
+      const target  = document.getElementById(btn.dataset.target);
+      if (!target) return;
+
+      /* → sale la actual */
+      current.classList.add('section-leave');
+      // forzamos reflujo para que la transición se aplique
+      void current.offsetWidth;
+      current.classList.add('section-leave-active');
+
+      current.addEventListener('transitionend', () => {
+        current.classList.remove('section-leave','section-leave-active','active');
+      }, { once:true });
+
+      /* → entra la nueva */
+      target.classList.add('section-enter','active');
+      void target.offsetWidth;
+      target.classList.add('section-enter-active');
+
+      target.addEventListener('transitionend', () => {
+        target.classList.remove('section-enter','section-enter-active');
+      }, { once:true });
+    });
+  });
+
+});
