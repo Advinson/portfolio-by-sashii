@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const img = document.createElement('img');
     img.src = sources[Math.floor(Math.random() * sources.length)];
     img.className = 'doodle';
-    
+
     // 1. tamaño aleatorio
     const size = 60 + Math.random() * 60;
     img.style.width = `${size}px`;
@@ -60,10 +60,10 @@ document.addEventListener('DOMContentLoaded', () => {
     positions.push({ x, y, size });
 
     img.style.left = `${x}px`;
-    img.style.top  = `${y}px`;
+    img.style.top = `${y}px`;
 
     // 3. animación (igual que antes)
-    img.style.animationDelay    = `-${Math.random() * 18}s`;
+    img.style.animationDelay = `-${Math.random() * 18}s`;
     img.style.animationDuration = `${14 + Math.random() * 10}s`;
 
     layer.appendChild(img);
@@ -162,8 +162,8 @@ document.querySelectorAll('.chapter-btn').forEach(btn => {
 document.addEventListener('DOMContentLoaded', () => {
 
   /* -------- Navegación lateral con animación -------- */
-  const navBtns   = document.querySelectorAll('.nav-btn');
-  const sections  = document.querySelectorAll('.content-section');
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const sections = document.querySelectorAll('.content-section');
 
   navBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       /* – Secciones */
       const current = document.querySelector('.content-section.active');
-      const target  = document.getElementById(btn.dataset.target);
+      const target = document.getElementById(btn.dataset.target);
       if (!target) return;
 
       /* → sale la actual */
@@ -185,18 +185,23 @@ document.addEventListener('DOMContentLoaded', () => {
       current.classList.add('section-leave-active');
 
       current.addEventListener('transitionend', () => {
-        current.classList.remove('section-leave','section-leave-active','active');
-      }, { once:true });
+        current.classList.remove('section-leave', 'section-leave-active', 'active');
+      }, { once: true });
 
       /* → entra la nueva */
-      target.classList.add('section-enter','active');
+      target.classList.add('section-enter', 'active');
       void target.offsetWidth;
       target.classList.add('section-enter-active');
 
       target.addEventListener('transitionend', () => {
-        target.classList.remove('section-enter','section-enter-active');
-      }, { once:true });
+        target.classList.remove('section-enter', 'section-enter-active');
+      }, { once: true });
     });
   });
 
 });
+
+
+
+
+
