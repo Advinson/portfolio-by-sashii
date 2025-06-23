@@ -135,21 +135,32 @@ body {
     background: #ffffff;
 }
 
+/* 1) Contenedor cuadrado sin altura fija */
 #galeria .galeria-item {
-    height: 500px;
-    /* ajusta este valor a tu gusto */
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* cuadrado perfecto */
     overflow: hidden;
     border-radius: 0.5rem;
+    margin: 0;
+    /* si tienes gutters, podrían venir de Bootstrap */
+    padding: 0;
 }
 
+/* 2) Imagen cubriendo todo el contenedor */
 #galeria .galeria-item img {
-    --size: 100%;
-    width: var(--size);
-    height: var(--size);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    /* recorta para llenar entero */
     transition: transform .3s ease;
 }
 
+/* 3) Hover si quieres */
 #galeria .galeria-item img:hover {
     transform: scale(1.05);
 }
@@ -182,7 +193,7 @@ body {
     /* centro horizontal */
     transform: translate(-50%, -50%);
     /* -50% arriba para que “invada” justo la mitad superior */
-    max-width: 950px;
+    max-width: 60rem;
     /* o el ancho que necesites */
     width: 100%;
     /* responsivo */

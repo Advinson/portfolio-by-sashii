@@ -962,9 +962,6 @@ body {
     padding: 2rem;
 }
 
-.contact-row {
-    /* línea divisoria al centro en desktop */
-}
 
 @media(min-width:992px) {
     .contact-right {
