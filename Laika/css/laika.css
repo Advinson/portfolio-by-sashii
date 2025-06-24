@@ -1,0 +1,424 @@
+/* 1. Fuentes Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* 2. Variables de color (proyecto Laika) */
+:root {
+    --negro: #000000;
+    --blanco: #ffffff;
+    --gris: #77767A;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* 3. Reset simple y tipografía base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+/* =========================
+   NAVBAR (mismo layout, nuevo nombre)
+   ========================= */
+.navbar-laika {
+    background-color: var(--blanco);
+    height: 100px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+    z-index: 10;
+    /* sutil sombra */
+}
+
+.navbar-laika .nav-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* --- Flechas + título al centro --- */
+.navbar-laika .nav-arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.navbar-laika .nav-title p {
+    margin: 0;
+    text-align: center;
+    line-height: 1.1;
+    color: var(--negro);
+}
+
+.navbar-laika .nav-title .label {
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.navbar-laika .nav-title .title {
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+/* --- Iconos laterales --- */
+.navbar-laika .nav-icons {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-laika .icon {
+    width: 32px;
+    height: 32px;
+    /* Sin invertir colores: los SVG ya son oscuros */
+}
+
+/* ————————————————————————————— */
+/* HERO – Imagen izquierda, texto derecha */
+/* ————————————————————————————— */
+.hero-section {
+    background: #000;
+    /* negro sólido */
+    padding: 4rem 0;
+}
+
+.img-laika {
+    width: 100%;
+    max-width: 550px;
+    /* controla tamaño máximo */
+    height: auto;
+}
+
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    /* lo especificó */
+    font-weight: 900;
+    font-size: 5rem;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 1rem;
+    margin-left: 3rem;
+}
+
+/* ————————————————————————————— */
+/* Botón “Leer el cuento”          */
+/* ————————————————————————————— */
+.btn-leer-cuento {
+    display: inline-block;
+    padding: .55rem 1.7rem;
+    background: #fff;
+    color: #000;
+    /* texto negro, como la maqueta */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 999px;
+    /* píldora */
+    text-decoration: none;
+    box-shadow: 0 0 0 1px #dcdcdc inset;
+    /* contorno sutil */
+    transition: all .25s ease;
+    margin-left: 3rem
+}
+
+.btn-leer-cuento:hover {
+    background: var(--gris);
+    color: #fff;
+    box-shadow: 0 0 0 1px #000 inset;
+}
+
+
+
+
+/* ————————————————————————————— */
+/* Canvas de huellas animadas      */
+/* ————————————————————————————— */
+#paws-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* mismo tamaño que la columna */
+    pointer-events: none;
+    /* no bloquea clics */
+    z-index: 1;
+    /* encima de la imagen */
+}
+
+
+
+
+
+/* ————————————————————————————— */
+/* SOBRE EL PROYECTO (Laika)      */
+/* ————————————————————————————— */
+
+#sobre-proyecto {
+    background-color: var(--blanco);
+}
+
+/* Título grande, negro, cursiva */
+#sobre-proyecto .titulo-proyecto {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 5.2rem);
+    /* fluido */
+    line-height: .9;
+    color: var(--negro);
+    text-transform: uppercase;
+    font-style: italic;
+    margin-top: 4rem;
+    margin-left: 4rem;
+    /* sin desplazamiento horizontal extra */
+    z-index: 10;
+}
+
+/* Párrafos */
+#sobre-proyecto p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--negro);
+    margin-bottom: 1rem;
+    text-align: justify;
+    /* sin justificado forzado */
+}
+
+/* Lista de áreas */
+#sobre-proyecto .lista-tecnologias {
+    margin-top: 1rem;
+}
+
+#sobre-proyecto .lista-tecnologias li {
+    font-weight: 500;
+    font-size: .95rem;
+    color: var(--negro);
+    margin-bottom: .35rem;
+}
+
+/* Iconos de herramientas */
+#sobre-proyecto .iconos-herramientas {
+    display: flex;
+    gap: 1rem;
+}
+
+#sobre-proyecto .herramienta-icon {
+    --size: 58px;
+    width: var(--size);
+    height: var(--size);
+}
+
+
+
+
+/* ————————————————————————————— */
+/* MOSAICO (banner panorámico)    */
+/* ————————————————————————————— */
+#mosaico-laika {
+    /* Altura fluida: entre 180 px y 380 px según el viewport */
+    height: 30rem;
+    overflow: hidden;
+    background: var(--blanco);
+}
+
+/* Imagen que ocupa todo el contenedor */
+#mosaico-laika img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+
+
+
+/* ————————————————————————————— */
+/* SHOWCASE – dispositivos Laika  */
+/* ————————————————————————————— */
+#showcase-laika {
+    background-color: var(--blanco);
+    /* Si desea margen extra arriba/abajo:
+       padding:2rem 0; */
+}
+
+#showcase-laika .img-fluid {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* conserva proporción original */
+    object-fit: contain;
+    /* no recorta los bordes del mock-up */
+}
+
+
+
+
+/* ————————————————————————————— */
+/* GALERÍA DOBLE (Laika) – SIN RECORTES */
+/* ————————————————————————————— */
+
+
+#duo-laika {
+    height: auto;
+    background: var(--blanco);
+    overflow: hidden;
+    /* evita desbordes si ajusta el alto */
+}
+
+/* Centrado de cada imagen dentro de su 50 % */
+#duo-laika .col-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagen ajustada SIN recortar */
+#duo-laika .duo-img {
+    max-height: 100%;
+    /* ocupa todo el alto disponible */
+    max-width: 100%;
+    /* sin superar el ancho de su columna */
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    /* muestra el 100 % de la ilustración */
+}
+
+
+
+
+
+
+/* ————————————————————————————— */
+/* VISOR DE INDESIGN – Fondo negro */
+/* ————————————————————————————— */
+#viewer-laika {
+    background: #000;
+    color: #fff;
+    min-height: 500px;
+    /* alto mínimo cómodo */
+}
+
+/* Contenedor con perspectiva */
+.book-container {
+    perspective: 1200px;
+    position: relative;
+}
+
+/* Iframe escalado y centrado */
+#laika-iframe {
+    width: 650px;
+    height: 460px;
+    border: 1px solid #777;
+    background: #111;
+    display: block;
+    margin: auto;
+    transform-style: preserve-3d;
+}
+
+/* Flechas */
+.page-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, .08);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .25s;
+}
+
+.page-btn:hover {
+    background: rgba(255, 255, 255, .18);
+}
+
+.page-btn.prev {
+    left: -72px;
+}
+
+.page-btn.next {
+    right: -72px;
+}
+
+/* Animaciones de volteo */
+@keyframes flipOut {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(-90deg);
+    }
+}
+
+@keyframes flipIn {
+    0% {
+        transform: rotateY(90deg);
+    }
+
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+.flip-out {
+    animation: flipOut var(--flip-duration, 0.6s) forwards ease-in;
+}
+
+.flip-in {
+    animation: flipIn var(--flip-duration, 0.6s) forwards ease-out;
+}
+
+
+
+/* ————————————————————————————— */
+/* VIDEO AUTOPLAY ON HOVER         */
+/* ————————————————————————————— */
+#video-laika {
+    background: #000;
+    /* negro sólido */
+}
+
+/* Contenedor con relación 16:9 flexible */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 = 9/16*100 */
+}
+
+#laika-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* llena sin distorsión */
+    pointer-events: none;
+    /* cursor no interfiere con controles ocultos */
+}
