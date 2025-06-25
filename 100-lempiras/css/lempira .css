@@ -290,6 +290,12 @@ body {
 /* CONTEXTO BILLETE               */
 /* ————————————————————————————— */
 
+#contexto-billete {
+    background-color: var(--blanco);
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
 #contexto-billete p {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -326,4 +332,21 @@ body {
     .hospital-wrapper {
         max-height: none;
     }
+}
+
+
+
+/* ————————————————————————————— */
+/* DETALLES DEL BILLETE            */
+/* ————————————————————————————— */
+.detalles-billete {
+    background-color: var(--blanco);
+    /* fondo neutro */
+}
+
+/* Garantiza que la imagen nunca se distorsione */
+#detalles-billete img {
+    height: auto;
+    /* se ajusta según el ancho */
+    max-width: 100%;
 }
