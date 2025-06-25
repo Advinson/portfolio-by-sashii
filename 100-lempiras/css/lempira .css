@@ -350,3 +350,38 @@ body {
     /* se ajusta según el ancho */
     max-width: 100%;
 }
+
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background: var(--negro);
+    color: var(--blanco);
+    border-top: 3px solid var(--negro);
+    font-size: .9rem;
+}
+
+.site-footer em {
+    font-style: italic;
+}
+
+.social-link i {
+    font-size: 1.25rem;
+    color: var(--blanco);
+    transition: transform .25s ease;
+}
+
+.social-link:hover i {
+    transform: scale(1.15);
+}
+
+
+
+/* ===== SECCIONES OCULTAS ===== */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
