@@ -96,8 +96,13 @@
                 <div class="container-xxl py-5">
                     <div class="row home-box align-items-center">
 
+                        <!-- IMAGEN primero en móvil, segundo en desktop -->
+                        <div class="col-12 col-lg-5 text-center order-1 order-lg-2 mb-4 mb-lg-0">
+                            <img src="img/bysashii-nbg.png" alt="Mascota Sashi señalando" class="hero-img img-fluid">
+                        </div>
+
                         <!-- Texto -->
-                        <div class="col-lg-7 px-4 px-lg-5">
+                        <div class="col-12 col-lg-7 px-4 px-lg-5 order-2 order-lg-1">
                             <h1 class="hero-title">Hi! You can call me<br><strong>SASHI.</strong></h1>
                             <p class="hero-lead">I’m a graphic designer based in Honduras with a deep love for editorial
                                 design, graphic production and illustrations.</p>
@@ -111,10 +116,6 @@
                             </div>
                         </div>
 
-                        <!-- Imagen -->
-                        <div class="col-lg-5 text-center">
-                            <img src="img/bysashii-nbg.png" alt="Mascota Sashi señalando" class="hero-img img-fluid">
-                        </div>
                     </div>
                 </div>
             </section>
@@ -125,12 +126,22 @@
             <!-- ABOUT SECTION -->
             <section id="about" class="content-section">
                 <div class="container-xxl py-5">
-                    <div class="portfolio-box mx-auto">
+                    <div class="portfolio-box  align-items-center gx-2">
+
 
                         <!-- Cabecera: texto + imagen -->
-                        <div class="row gx-2 ms-3 about-row">
-                            <!-- Columna texto -->
-                            <div class="col-12 col-lg-7 about-text ">
+                        <div class="row about-row align-items-center gx-2">
+
+
+
+                            <!-- FOTO (primera en móvil, derecha en desktop) -->
+                            <div class="col-12 col-lg-5 about-photo text-center order-1 order-lg-2 mb-4 mb-lg-0">
+                                <img src="img/aboutmewhite.png" alt="Retrato de Sarahi" class="about-img img-fluid">
+                            </div>
+
+
+                            <!-- TEXTO -->
+                            <div class="col-12 col-lg-7 about-text order-2 order-lg-1 px-4 px-lg-5">
                                 <h2 class="hero-title">
                                     Behind the lines:<br><strong>SARAHI</strong>
                                 </h2>
@@ -147,17 +158,12 @@
                                 </p>
 
 
-                                <!-- Flecha indicadora (queda alineada con la columna de texto) -->
                                 <div class="scroll-hint-wrapper mt-4 text-center">
-                                    <i class="bi bi-arrow-down-circle-fill scroll-hint-about"></i>
+                                    <i id="aboutScroll" class="bi bi-arrow-down-circle-fill scroll-hint-about"></i>
                                 </div>
                             </div>
 
-                            <!-- Columna imagen (ya incluye diseño circular y texto) -->
-                            <div
-                                class="col-12 col-lg-5 about-photo d-flex justify-content-center align-items-center pt-3">
-                                <img src="img/aboutmewhite.png" alt="Retrato de Sarahi" class="about-img img-fluid">
-                            </div>
+
                         </div><!-- /.row -->
 
 
@@ -165,7 +171,7 @@
                         <!-- SEGUNDO PANEL – SKILLS & INTERESTS -->
                         <div class="skills-wrapper mt-5">
 
-                            <div class="row justify-content-between align-items-center gy-4">
+                            <div class="row gy-4 justify-content-between align-items-center">
 
                                 <!-- COLUMNA IZQUIERDA – Softwares ------------->
                                 <div class="col-12 col-lg-4 skills-col">
@@ -180,11 +186,11 @@
                                             Procreate</li>
                                         <li><img src="svg/canva.svg" alt=""> Canva</li>
                                         <li><img src="svg/microsoft-office-svgrepo-com.svg" alt=""> Office</li>
-                                        <li><img src="svg/Apple_light.svg" alt=""> Entorno Mac</li>
-                                        <li><img src="svg/windows-logo-svg-vector.svg" alt=""> Entorno Windows</li>
+                                        <li><img src="svg/Apple_light.svg" alt=""> Mac</li>
+                                        <li><img src="svg/windows-logo-svg-vector.svg" alt="">Windows</li>
                                     </ul>
 
-                                    <h3 class="skills-pill mt-4">Habilidades Técnicas</h3>
+                                    <h3 class="skills-pill mt-4 ms-5">Technical skills</h3>
                                     <div class="skills-chips">
                                         <span>Copywriting</span><span>Storytelling</span><span>Packaging</span>
                                         <span>Character design</span><span>Architectural graphics</span>
@@ -203,21 +209,19 @@
 
                                 <!-- COLUMNA DERECHA – Intereses --------------->
                                 <div class="col-12 col-lg-4 skills-col">
-
-                                    <h3 class="skills-pill">Intereses</h3>
-
+                                    <h3 class="skills-pill">Interests</h3>
                                     <ul class="skills-list interest-list">
                                         <li><img src="svg/books-svgrepo-com.svg" alt=""> Books</li>
                                         <li><img src="svg/drawing-tablet-svgrepo-com.svg" alt=""> Illustration</li>
                                         <li><img src="svg/console-switch-gaming-videogames-svgrepo-com.svg" alt="">
                                             Videogames</li>
                                         <li><img src="svg/animation-svgrepo-com.svg" alt=""> 2D Animation</li>
-                                        <li><img src="svg/study-svgrepo-com.svg" alt=""> Cursos</li>
-                                        <li><img src="svg/writing-notepad-svgrepo-com.svg" alt=""> Escritura creativa
+                                        <li><img src="svg/study-svgrepo-com.svg" alt=""> Courses</li>
+                                        <li><img src="svg/writing-notepad-svgrepo-com.svg" alt=""> Creative Writing
                                         </li>
                                     </ul>
 
-                                    <h3 class="skills-pill mt-4">Habilidades Blandas</h3>
+                                    <h3 class="skills-pill mt-4 ms-5">Soft Skills</h3>
                                     <div class="skills-chips">
                                         <span>Critical Thinking</span><span>Decision making</span>
                                         <span>Good time management</span><span>Versatile</span>
@@ -227,9 +231,32 @@
 
                                 </div><!-- /.skills-col -->
 
+
+
+
+
                             </div><!-- /.row -->
 
                         </div><!-- /.skills-wrapper -->
+
+
+                        <!-- 3 BANNERS RESPONSIVE -->
+                        <div class="about-gallery mt-5">
+
+                            <div class="about-banner mb-4">
+                                <img src="img/NAMING.png" alt="Proceso de trabajo" class="w-100 h-100 img-fluid">
+                            </div>
+
+                            <div class="about-banner mb-4">
+                                <img src="img/MARCA VISUAL.png" alt="Mesa de trabajo" class="w-100 h-100">
+                            </div>
+
+                            <div class="about-banner">
+                                <img src="img/THE END.png" alt="Detalle de ilustración" class="w-100 h-100">
+                            </div>
+
+                        </div><!-- /.about-gallery -->
+
 
 
 
@@ -393,6 +420,46 @@
                                         </div>
                                     </div>
 
+
+                                    <!-- ITEM 4 -->
+                                    <!-- ITEM 4 -->
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed d-flex align-items-center"
+                                                type="button" data-bs-toggle="collapse" data-bs-target="#service4"
+                                                aria-expanded="false" aria-controls="service4">
+                                                <span class="service-num">04</span>
+                                                <span class="service-title flex-grow-1">Graphic Production</span>
+                                                <i class="bi bi-arrow-right-circle-fill"></i>
+                                            </button>
+                                        </h2>
+
+                                        <div id="service4" class="accordion-collapse collapse"
+                                            aria-labelledby="headingFour" data-bs-parent="#accordionServices">
+                                            <div class="accordion-body">
+
+                                                <p>
+                                                    Making your ideas become tangible, whether in print or digital
+                                                    formats.
+                                                    I handle the preparation, adaptation, and optimization of designs to
+                                                    ensure
+                                                    high-quality reproduction.
+                                                </p>
+
+                                                <ul class="service-list">
+                                                    <li>Print-ready file preparation.</li>
+                                                    <li>Pre-press review and correction.</li>
+                                                    <li>Design adaptation for multiple formats (print & digital).</li>
+                                                    <li>Flexible artwork for stationery, packaging, editorial, etc.</li>
+                                                    <li>Final artwork delivery for print or online publication.</li>
+                                                    <li>Consultancy on printing processes and material selection.</li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
                                 </div><!-- /.accordion -->
                             </div><!-- /.col -->
 
@@ -450,7 +517,7 @@
                                 <article class="chapter-panel active" data-chapter="1">
                                     <header class="chapter-head mb-4">
                                         <span class="ch-number">Chapter 1:</span>
-                                        <h2 class="ch-title">Diseño Editorial</h2>
+                                        <h2 class="ch-title">Editorial Design</h2>
                                         <p class="ch-desc">
                                             Design of printed or digital publications with visual storytelling —
                                             combining text, image and layout to create engaging reading experiences.
@@ -481,7 +548,7 @@
                                 <article class="chapter-panel" data-chapter="2">
                                     <header class="chapter-head mb-4">
                                         <span class="ch-number">Chapter 2:</span>
-                                        <h2 class="ch-title">Identidad Visual</h2>
+                                        <h2 class="ch-title">Visual Identity</h2>
                                         <p class="ch-desc">Identity systems and packaging concepts that enhance
                                             shelf-appeal
                                             and brand recall.</p>
@@ -505,21 +572,20 @@
                                 <article class="chapter-panel" data-chapter="3">
                                     <header class="chapter-head mb-4">
                                         <span class="ch-number">Chapter 3:</span>
-                                        <h2 class="ch-title">Illustration & Posters</h2>
-                                        <p class="ch-desc">Expressive artwork and poster series exploring color, shape
-                                            and
-                                            storytelling.</p>
+                                        <h2 class="ch-title">Graphic Production</h2>
+                                        <p class="ch-desc">Preparing visual designs for final output, whether in print
+                                            or digital formats. The bridge between design and production—this is what
+                                            the designer envisions is what actually gets printed or published.</p>
                                     </header>
 
                                     <div class="row g-4">
                                         <div class="col-md-6">
-                                            <a href="#" class="pf-card"><img src="img/404.jpg" alt=""
-                                                    class="pf-img"><span class="pf-label">Packaging</span></a>
+                                            <a href="100-lempiras/lempira.html" class="pf-card"><img
+                                                    src="100-lempiras/img/portada.png" style="background-color: black;"
+                                                    class="pf-img"><span class="pf-label">Billete 1000
+                                                    Lempiras</span></a>
                                         </div>
-                                        <div class="col-md-6">
-                                            <a href="#" class="pf-card"><img src="img/404.jpg" alt=""
-                                                    class="pf-img"><span class="pf-label">Poster Series</span></a>
-                                        </div>
+
                                     </div>
                                 </article>
 
@@ -620,8 +686,8 @@
 
                                     <!-- iconos a la derecha -->
                                     <div class="d-flex gap-3">
-                                        <a href="#" class="social-circle"><i class="bi bi-instagram"></i></a>
-                                        <a href="#" class="social-circle"><i class="bi bi-linkedin"></i></a>
+                                        <a href="https://www.instagram.com/bysashiii/" class="social-circle"><i class="bi bi-instagram"></i></a>
+                                        <a href="https://www.linkedin.com/in/scarlethmassou/" class="social-circle"><i class="bi bi-linkedin"></i></a>
                                     </div>
 
                                 </div><!-- /.contact-info -->

@@ -514,13 +514,13 @@ body {
     /* recorta para llenar sin deformar */
     display: block;
     /* elimina espacio inline */
-    transition: transform 0.5s ease;
+    transition: transform 0.2s ease;
 }
 
 /* Efecto sutil al pasar el cursor (solo desktop) */
 @media (hover:hover) {
     .gallery-img:hover {
-        transform: scale(1.03);
+        transform: scale(1.001);
     }
 }
 
