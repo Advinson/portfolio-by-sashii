@@ -1,207 +1,96 @@
-/* Cambia la sección visible y el estado de los botones */
-document.querySelectorAll('.nav-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    // desactivar todos los botones
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    // ocultar todas las secciones
-    document.querySelectorAll('.content-section').forEach(sec => sec.classList.remove('active'));
-
-    // mostrar solo la sección objetivo
-    const targetId = btn.dataset.target;
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) targetSection.classList.add('active');
-  });
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const layer = document.querySelector('.doodle-layer');
-  const { width: layerW, height: layerH } = layer.getBoundingClientRect();
-  const sources = [
-    'img/gatitohome.png',
-    'img/escorpionhome.png',
-    'img/calaverahome.png'
-  ];
-  const NUM_DOODLES = 45;
-  const positions = [];          // aquí guardamos { x, y, size }
-  const GAP = 30;                // espacio mínimo en px entre doodles
-
-  for (let i = 0; i < NUM_DOODLES; i++) {
-    const img = document.createElement('img');
-    img.src = sources[Math.floor(Math.random() * sources.length)];
-    img.className = 'doodle';
-
-    // 1. tamaño aleatorio
-    const size = 60 + Math.random() * 60;
-    img.style.width = `${size}px`;
-    img.style.height = 'auto';
-    img.style.position = 'absolute';
-
-    // 2. buscar posición que no colisione
-    let x, y, attempts = 0;
-    do {
-      x = Math.random() * (layerW - size);
-      y = Math.random() * (layerH - size);
-      attempts++;
-    } while (
-      positions.some(p =>
-        x < p.x + p.size + GAP &&
-        x + size + GAP > p.x &&
-        y < p.y + p.size + GAP &&
-        y + size + GAP > p.y
-      ) &&
-      attempts < 100
-    );
-    // si no encontró posición en 100 intentos, lo pone donde sea
-    positions.push({ x, y, size });
-
-    img.style.left = `${x}px`;
-    img.style.top = `${y}px`;
-
-    // 3. animación (igual que antes)
-    img.style.animationDelay = `-${Math.random() * 18}s`;
-    img.style.animationDuration = `${14 + Math.random() * 10}s`;
-
-    layer.appendChild(img);
-  }
-});
-
-
-
-
-
-
-/* ---------- Navegación lateral con animación ---------- */
-document.querySelectorAll('.nav-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (btn.classList.contains('active')) return;        // ya está en esa sección
-
-    /* Botones activos */
-    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    /* Secciones */
-    const current = document.querySelector('.content-section.active');
-    const target = document.getElementById(btn.dataset.target);
-
-    if (!target) return;
-
-    /* Animar salida de la sección actual */
-    current.classList.add('section-leave');
-    current.classList.remove('active');
-
-    // fuerza reflujo para que la transición se aplique
-    void current.offsetWidth;
-    current.classList.add('section-leave-active');
-
-    /* Cuando termine la animación de salida, ocultamos completamente */
-    current.addEventListener('transitionend', () => {
-      current.classList.remove('section-leave', 'section-leave-active');
-    }, { once: true });
-
-    /* Preparar y animar la sección destino */
-    target.classList.add('section-enter');
-    target.classList.add('active');
-
-    // reflujo
-    void target.offsetWidth;
-    target.classList.add('section-enter-active');
-
-    /* Limpiar clases al final de la animación de entrada */
-    target.addEventListener('transitionend', () => {
-      target.classList.remove('section-enter', 'section-enter-active');
-    }, { once: true });
-  });
-});
-
-
-
-
-
-/* ---------- Cambio de capítulo ---------- */
-document.querySelectorAll('.chapter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    if (btn.classList.contains('active')) return;
-
-    /* botones */
-    document.querySelectorAll('.chapter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    /* paneles */
-    const current = document.querySelector('.chapter-panel.active');
-    const target = document.querySelector(`.chapter-panel[data-chapter="${btn.dataset.chapter}"]`);
-
-    if (!target) return;
-
-    /* animación salida */
-    current.style.transition = 'opacity .3s ease, transform .3s ease';
-    current.style.opacity = 0;
-    current.style.transform = 'translateX(-40px)';
-    current.classList.remove('active');
-
-    /* anima entrada luego de reflujo */
-    requestAnimationFrame(() => {
-      target.classList.add('active');
-      target.style.opacity = 0;
-      target.style.transform = 'translateX(40px)';
-
-      requestAnimationFrame(() => {
-        target.style.transition = 'opacity .5s ease, transform .5s ease';
-        target.style.opacity = 1;
-        target.style.transform = 'translateX(0)';
-      });
-    });
-  });
-});
-
-
+/* ========= app.js – versión única ========= */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* -------- Navegación lateral con animación -------- */
-  const navBtns = document.querySelectorAll('.nav-btn');
-  const sections = document.querySelectorAll('.content-section');
+  /* ---------- Referencias ---------- */
+  const body      = document.body;
+  const sidebar   = document.getElementById('sidebar');
+  const toggleBtn = document.getElementById('sidebarToggle');
+  const navBtns   = sidebar.querySelectorAll('.nav-btn');
+  const sections  = document.querySelectorAll('.content-section');
 
+  /* ---------- Helpers ---------- */
+  const activate = btn => {
+    /* 1 · Botón activo */
+    navBtns.forEach(b => b.classList.toggle('active', b === btn));
+
+    /* 2 · Sección visible */
+    const id = btn.dataset.target;
+    sections.forEach(sec => sec.classList.toggle('active', sec.id === id));
+  };
+
+  const closeIfMobile = () => {
+    if (window.innerWidth < 992) body.classList.remove('sidebar-open');
+  };
+
+  /* ---------- Navegación en sidebar ---------- */
   navBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      if (btn.classList.contains('active')) return;   // ya estamos ahí
-
-      /* – Botones */
-      navBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      /* – Secciones */
-      const current = document.querySelector('.content-section.active');
-      const target = document.getElementById(btn.dataset.target);
-      if (!target) return;
-
-      /* → sale la actual */
-      current.classList.add('section-leave');
-      // forzamos reflujo para que la transición se aplique
-      void current.offsetWidth;
-      current.classList.add('section-leave-active');
-
-      current.addEventListener('transitionend', () => {
-        current.classList.remove('section-leave', 'section-leave-active', 'active');
-      }, { once: true });
-
-      /* → entra la nueva */
-      target.classList.add('section-enter', 'active');
-      void target.offsetWidth;
-      target.classList.add('section-enter-active');
-
-      target.addEventListener('transitionend', () => {
-        target.classList.remove('section-enter', 'section-enter-active');
-      }, { once: true });
+      if (btn.classList.contains('active')) { closeIfMobile(); return; }
+      activate(btn);
+      closeIfMobile();
     });
   });
 
+  /* ---------- Enlaces con data-target (CTA) ---------- */
+  document.querySelectorAll('a[data-target]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id  = link.dataset.target;
+      const btn = [...navBtns].find(b => b.dataset.target === id);
+      if (btn) btn.click();       // reutilizamos la misma lógica
+    });
+  });
+
+  /* ---------- Botón hamburguesa ---------- */
+  toggleBtn.addEventListener('click', () =>
+    body.classList.toggle('sidebar-open')
+  );
+
+  /* ---------- Cerrar al clicar fuera / Esc ---------- */
+  document.addEventListener('click', e => {
+    if (body.classList.contains('sidebar-open') &&
+        !sidebar.contains(e.target) &&
+        !toggleBtn.contains(e.target)) {
+      body.classList.remove('sidebar-open');
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') body.classList.remove('sidebar-open');
+  });
+
+  /* ---------- Doodles decorativos ---------- */
+  const layer = document.querySelector('.doodle-layer');
+  if (layer) {
+    const { width: W, height: H } = layer.getBoundingClientRect();
+    const src = ['img/gatitohome.png','img/escorpionhome.png','img/calaverahome.png'];
+    const NUM = 45, GAP = 30, placed = [];
+
+    for (let i = 0; i < NUM; i++) {
+      const img  = document.createElement('img');
+      const size = 60 + Math.random() * 60;
+      img.src    = src[Math.floor(Math.random()*src.length)];
+      img.className = 'doodle';
+      img.style.cssText = `
+        width:${size}px;position:absolute;
+        animation-delay:-${Math.random()*18}s;
+        animation-duration:${14+Math.random()*10}s`;
+      /* posición sin colisiones básicas */
+      let x, y, tries = 0;
+      do {
+        x = Math.random() * (W - size);
+        y = Math.random() * (H - size);
+      } while (
+        placed.some(p => x < p.x + p.s + GAP && x + size + GAP > p.x &&
+                         y < p.y + p.s + GAP && y + size + GAP > p.y) &&
+        ++tries < 100
+      );
+      placed.push({ x, y, s: size });
+      img.style.left = `${x}px`;
+      img.style.top  = `${y}px`;
+      layer.appendChild(img);
+    }
+  }
+
+  console.log('%c app.js cargado correctamente ✔', 'color:#0a0');
 });
-
-
-
-
-

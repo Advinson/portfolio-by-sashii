@@ -94,7 +94,7 @@ body {
     align-items: center;
     gap: 1.5rem;
     padding-block: 7rem;
-    z-index: 1000;
+    z-index: 1040;
 
 }
 
@@ -204,6 +204,85 @@ body {
 .nav-btn:hover i {
     color: var(--white);
 }
+
+
+/* ------------- MOBILE FIRST ( < 992 px ) ------------- */
+@media (max-width: 991.98px) {
+
+    :root {
+        /* NUEVO: puede adaptar la anchura aquí */
+        --sidebar-mobile-width: 100px;
+        --topbar-h: 64px;
+    }
+
+    /* ----- Barra superior móvil ----- */
+    #mobileTopbar {
+        height: var(--topbar-h);
+        background: var(--white);
+        border-bottom: 1px solid var(--black);
+        z-index: 1050;
+        /* por encima de overlay y sidebar */
+    }
+
+    /* Botón dentro de la topbar */
+    #sidebarToggle {
+        width: 48px;
+        height: 48px;
+        background: var(--primary);
+        border: 3px solid var(--black);
+        border-radius: 12px;
+        color: var(--white);
+        transition: background .25s ease, transform .2s ease;
+    }
+
+    .mobile-logo {
+        width: 120px;
+        height: 90px;
+    }
+
+    /* Barra lateral pasa a off-canvas */
+    #sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: var(--sidebar-mobile-width);
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: transform .3s ease-in-out;
+        /* evitamos que el resto del contenido se desplace */
+    }
+
+    /* Cuando el body recibe la clase que añade JS → visible */
+    body.sidebar-open #sidebar {
+        transform: translateX(0);
+    }
+
+    /* Hacemos la lista vertical siempre en móvil (por claridad) */
+    #sidebar ul.nav {
+        flex-direction: column !important;
+        align-items: stretch;
+    }
+
+    /* El contenido principal puede oscurecerse opcionalmente */
+    body.sidebar-open::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 1030;
+        /* justo por debajo del sidebar (1030) */
+    }
+}
+
+/* ------------- DESKTOP ( ≥ 992 px ) ------------- */
+@media (min-width: 992px) {
+    /* Nada cambia: mantiene su estilo actual.              */
+    /* Si desea más ancho basta con ajustar width/min-width */
+}
+
+
+
+
+
 
 
 
@@ -1083,6 +1162,7 @@ body {
 
 
 
+
 /* ===== FOOTER ===== */
 .site-footer {
     background: var(--black);
@@ -1115,7 +1195,6 @@ body {
 .content-section.active {
     display: block;
 }
-
 
 
 /* ───────── DOODLES ───────── */
@@ -1193,15 +1272,7 @@ body {
 
 
 
-/* 1️⃣  Estado base: secciones ocultas */
-.content-section {
-    display: none;
-}
 
-/* 2️⃣  Sección visible después de animar */
-.content-section.active {
-    display: block;
-}
 
 /* 3️⃣  Clases de animación */
 .section-enter {
