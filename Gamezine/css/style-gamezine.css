@@ -93,6 +93,109 @@ body {
 
 
 
+
+/* ————————————————————————————— */
+/*  NAVBAR REVISTA — RESPONSIVE     */
+/* ————————————————————————————— */
+
+/* ≥ 992 px — ESCRITORIO  (sin cambios) */
+/* ------------------------------------ */
+
+
+
+/* ≤ 991 px — TABLETS GRANDES */
+/* -------------------------- */
+@media (max-width: 991.98px) {
+
+    /* Altura más baja y tipografías algo menores */
+    .navbar-revista {
+        height: 84px;
+    }
+
+    .navbar-revista .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .navbar-revista .nav-title .label {
+        font-size: .9rem;
+    }
+
+    .navbar-revista .nav-title .title {
+        font-size: 1.05rem;
+    }
+}
+
+
+
+/* ≤ 767 px — TABLETS PEQUEÑAS / MÓVILES */
+/* ------------------------------------- */
+@media (max-width: 767.98px) {
+
+    .navbar-revista {
+        height: 68px;
+    }
+
+    /* Bloque flecha-título más compacto */
+    .navbar-revista .nav-arrows {
+        gap: .5rem;
+    }
+
+    /* Íconos aún más pequeños */
+    .navbar-revista .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .navbar-revista .nav-title .label {
+        font-size: .8rem;
+    }
+
+    .navbar-revista .nav-title .title {
+        font-size: .95rem;
+    }
+
+    /* Evitar que el título choque con los iconos laterales */
+    .navbar-revista .nav-title {
+        max-width: 120px;
+        /* límite opcional */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+
+
+/* ≤ 575 px — TELÉFONOS PEQUEÑOS */
+/* ----------------------------- */
+@media (max-width: 575.98px) {
+
+    .navbar-revista {
+        height: 60px;
+    }
+
+    .navbar-revista .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navbar-revista .nav-title .label {
+        font-size: .7rem;
+    }
+
+    .navbar-revista .nav-title .title {
+        font-size: .85rem;
+    }
+
+    /* Reduce separación entre iconos laterales */
+    .navbar-revista .nav-icons {
+        gap: .5rem;
+    }
+}
+
+
+
 /* HERO */
 .hero-section {
     position: relative;
@@ -322,17 +425,64 @@ body {
 
 
 
-/* Opcional: agrandar a partir de 992 px para más protagonismo */
-@media (min-width: 992px) {
-    .crosshair {
-        width: 80px;
-        height: 80px;
-        top: -40px;
-        /* reajusta para mantener la alineación */
+
+/* ————————————————————————————————— */
+/* ≤ 991 px — TABLETS GRANDES       */
+/* ————————————————————————————————— */
+@media (max-width:991.98px) {
+
+    .crosshair-divider .row {
+        gap: 6rem;
     }
 
+    .crosshair {
+        width: 56px;
+        height: 56px;
+        top: -28px;
+        /* mitad de la altura */
+    }
+}
+
+
+/* ————————————————————————————————— */
+/* ≤ 767 px — TABLETS / MÓVILES     */
+/* ————————————————————————————————— */
+@media (max-width:767.98px) {
+
     .crosshair-divider {
-        height: 1px;
+        padding: 3rem 0;
+    }
+
+    .crosshair-divider .row {
+        gap: 4rem;
+    }
+
+    .crosshair {
+        width: 48px;
+        height: 48px;
+        top: -24px;
+    }
+}
+
+
+/* ————————————————————————————————— */
+/* ≤ 575 px — TELÉFONOS PEQUEÑOS    */
+/* ————————————————————————————————— */
+@media (max-width:575.98px) {
+
+    .crosshair-divider {
+        padding: 2.5rem 0;
+        margin-bottom: -130px;
+    }
+
+    .crosshair-divider .row {
+        gap: 2rem;
+    }
+
+    .crosshair {
+        width: 40px;
+        height: 40px;
+        top: -70px;
     }
 }
 
