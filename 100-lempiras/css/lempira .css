@@ -206,3 +206,124 @@ body {
     height: auto;
     object-fit: cover;
 }
+
+
+/* ————————————————————————————— */
+/* PALETA DE COLORES              */
+/* ————————————————————————————— */
+.paleta-colores {
+    width: 100%;
+    min-height: 180px;
+    margin: 0;
+
+    /* sin márgenes extra */
+}
+
+/* Bloque genérico */
+.color-block {
+    flex: 1 1 25%;
+    /* 4 columnas en desktop */
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Colores específicos */
+.color-teal {
+    background-color: var(--dark-teal);
+}
+
+.color-orange {
+    background-color: var(--orange);
+}
+
+.color-sand {
+    background-color: var(--sand);
+}
+
+.color-forest {
+    background-color: var(--forest);
+}
+
+/* Etiqueta interior */
+.color-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--blanco);
+    /* texto claro por defecto */
+}
+
+.color-label small {
+    font-size: .8rem;
+}
+
+/* Mejor contraste sobre el fondo Sand */
+.color-sand .color-label {
+    color: var(--dark-teal);
+}
+
+/* Responsividad */
+@media(max-width:767.98px) {
+
+    /* tablets */
+    .color-block {
+        flex: 1 1 50%;
+    }
+}
+
+@media(max-width:575.98px) {
+
+    /* móviles */
+    .color-block {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+/* ————————————————————————————— */
+/* CONTEXTO BILLETE               */
+/* ————————————————————————————— */
+
+#contexto-billete p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.55;
+    text-align: justify;
+    color: var(--negro);
+    margin-bottom: 1rem;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* ————————————————————————————— */
+/* Ajuste de altura panorámica    */
+/* ————————————————————————————— */
+
+/* máx-alto en escritorio */
+.hospital-wrapper {
+    max-height: 420px;
+    /* ajústelo a su gusto */
+}
+
+/* un poco más bajo en tablets */
+@media (max-width:991.98px) {
+    .hospital-wrapper {
+        max-height: 340px;
+    }
+}
+
+/* en móvil se deja crecer lo necesario */
+@media (max-width:575.98px) {
+    .hospital-wrapper {
+        max-height: none;
+    }
+}
