@@ -33,7 +33,7 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--blanco);
-    color: var(--negro);
+
 }
 
 /* =========================
@@ -113,6 +113,121 @@ body {
 }
 
 
+/* ———————————————————————————————————————— */
+/* BREAKPOINT ≥ 992 px (escritorio – ya está) */
+/* ———————————————————————————————————————— */
+/* Todo se mantiene como lo tiene ahora.      */
+
+/* ———————————————————————————————————————— */
+/* BREAKPOINT < 992 px (tablets)              */
+/* ———————————————————————————————————————— */
+@media (max-width: 991.98px) {
+
+    /* Navbar más delgado */
+    .navbar-billete {
+        height: 84px;
+    }
+
+    /* Iconos y flechas un poco menores */
+    .navbar-billete .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* Tipografías algo más pequeñas */
+    .navbar-billete .nav-title .label {
+        font-size: .9rem;
+    }
+
+    .navbar-billete .nav-title .title {
+        font-size: 1.05rem;
+    }
+
+    /* Hero menos alto */
+    .hero-img {
+        height: 50rem;
+    }
+
+    /* de 60 → 50 */
+}
+
+/* ———————————————————————————————————————— */
+/* BREAKPOINT < 768 px (móviles)             */
+/* ———————————————————————————————————————— */
+@media (max-width: 767.98px) {
+
+    /* Navbar compacto */
+    .navbar-billete {
+        height: 68px;
+    }
+
+    /* Ajustar posición de las flechas centradas
+     —evita que se tapen con los iconos laterales— */
+    .navbar-billete .nav-arrows {
+        gap: .5rem;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Tipografías reducidas */
+    .navbar-billete .nav-title .label {
+        font-size: .8rem;
+    }
+
+    .navbar-billete .nav-title .title {
+        font-size: .95rem;
+    }
+
+    /* Iconos aún más discretos */
+    .navbar-billete .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Hero: usar alto relativo al viewport y recortar
+     si hace falta para que no “empuje” la siguiente sección */
+    .hero-img {
+        height: 60vh;
+        /* ocupa 60 % de la altura visible */
+        object-fit: cover;
+        /* recorta arriba/abajo si sobra */
+        border-radius: 0;
+        /* sin curvas para mejor ajuste */
+    }
+}
+
+/* ———————————————————————————————————————— */
+/* BREAKPOINT < 576 px (teléfonos pequeños)   */
+/* ———————————————————————————————————————— */
+@media (max-width: 575.98px) {
+
+    /* Flechas + título en una misma línea, pero permitimos
+     que el título se encoja sin romper */
+    .navbar-billete .nav-title {
+        max-width: 120px;
+        /* evita solaparse con iconos */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        align-items: center;
+    }
+
+    /* Hero un poco más bajo aún */
+    .hero-img {
+        height: 52vh;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ————————————————————————————— */
 /* SOBRE EL PROYECTO (Billete)    */
@@ -125,10 +240,12 @@ body {
 /* fajos laterales */
 .billete-stack {
     width: 330px;
-    pointer-events: none;
     position: absolute;
     z-index: 20;
+    /*   pointer-events:none;     quítelo si quiere detectar el hover   */
+    transition: transform .45s ease, filter .45s ease;
 }
+
 
 .billete-left {
     top: -160px;
@@ -136,11 +253,39 @@ body {
     transform: rotate(70deg);
 }
 
+
 .billete-right {
-    bottom: -140px;
-    right: -70px;
+    bottom: -181px;
+    right: 47px;
     transform: rotate(-20deg);
 }
+
+
+
+/* ------------------------------------------------------------------ */
+/* 3. Animación en hover                                              */
+/* ------------------------------------------------------------------ */
+/* 3.a) Opción A: hover directo sobre cada imagen ------------------- */
+.billete-stack:hover {
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .25));
+}
+
+/* Movimiento específico de cada fajo */
+.billete-left:hover {
+    transform: rotate(65deg) translate(25px, -25px) scale(1.08);
+}
+
+.billete-right:hover {
+    transform: rotate(-25deg) translate(-25px, 25px) scale(1.08);
+}
+
+
+
+
+
+
+
+
 
 /* Título grande, en naranja e itálica */
 #sobre-proyecto .titulo-proyecto {
@@ -175,20 +320,21 @@ body {
 }
 
 /* Badges de herramientas (Ai / Ps) */
-.tool-badge {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 64px;
-    height: 64px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 1.4rem;
-    color: var(--blanco);
-    background-color: var(--forest);
-    /* #344646 */
-    border-radius: 12px;
-    margin-right: 1rem;
+.iconos-herramientas {
+    display: flex;
+    gap: 1rem;
+}
+
+.iconos-herramientas img {
+    --size: 60px;
+    width: var(--size);
+    height: var(--size);
+    transition: transform .3s ease;
+
+}
+
+.iconos-herramientas img:hover {
+    transform: scale(1.1);
 }
 
 
@@ -205,7 +351,9 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
+
 }
+
 
 
 /* ————————————————————————————— */
