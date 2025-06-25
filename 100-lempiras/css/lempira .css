@@ -1,0 +1,208 @@
+/* 1. Fuentes Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* 2. Paleta del proyecto Billete */
+:root {
+    /* principales */
+    --dark-teal: #192e31;
+    /* fondo hero */
+    --orange: #ea853c;
+    /* destaque - botones, badges, etc. */
+    --sand: #c0b8a6;
+    /* gris-arena complementario */
+    --forest: #344646;
+    /* acento oscuro secundario */
+
+    /* genéricos que ya usaba */
+    --negro: #000000;
+    --blanco: #ffffff;
+    --gris: #77767a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+/* =========================
+   NAVBAR – misma estructura
+   ========================= */
+.navbar-billete {
+    background-color: var(--blanco);
+    height: 100px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, .08);
+}
+
+.navbar-billete .nav-container {
+    width: 100%;
+    height: 100%;
+}
+
+/* Flechas + título centrados */
+.navbar-billete .nav-arrows {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.navbar-billete .nav-title p {
+    margin: 0;
+    text-align: center;
+    line-height: 1.1;
+    color: var(--negro);
+}
+
+.navbar-billete .nav-title .label {
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.navbar-billete .nav-title .title {
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+
+.navbar-billete .nav-icons {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar-billete .icon {
+    width: 32px;
+    height: 32px;
+    /* Los SVG ya son oscuros; no invertir colores */
+}
+
+/* ———————————————————————
+   HERO – imagen única centrada
+   ——————————————————————— */
+.hero-section {
+    background-color: var(--dark-teal);
+    position: relative;
+    min-height: auto;
+    text-align: center;
+    z-index: 5;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 100%;
+    height: 60rem;
+    border-radius: 12px;
+}
+
+
+
+/* ————————————————————————————— */
+/* SOBRE EL PROYECTO (Billete)    */
+/* ————————————————————————————— */
+
+#sobre-proyecto {
+    background-color: var(--blanco);
+}
+
+/* fajos laterales */
+.billete-stack {
+    width: 330px;
+    pointer-events: none;
+    position: absolute;
+    z-index: 20;
+}
+
+.billete-left {
+    top: -160px;
+    left: -80px;
+    transform: rotate(70deg);
+}
+
+.billete-right {
+    bottom: -140px;
+    right: -70px;
+    transform: rotate(-20deg);
+}
+
+/* Título grande, en naranja e itálica */
+#sobre-proyecto .titulo-proyecto {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3.5rem, 7vw, 5.2rem);
+    line-height: .9;
+    color: var(--orange);
+    text-transform: uppercase;
+    font-style: italic;
+    margin-top: 3rem;
+    z-index: 100;
+    /* sobre las imágenes */
+}
+
+/* Texto base */
+#sobre-proyecto p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--negro);
+    text-align: justify;
+}
+
+/* Pequeña etiqueta bajo la descripción */
+.etiqueta-tecnica {
+    font-size: .9rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    text-transform: capitalize;
+    color: var(--orange) !important;
+}
+
+/* Badges de herramientas (Ai / Ps) */
+.tool-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--blanco);
+    background-color: var(--forest);
+    /* #344646 */
+    border-radius: 12px;
+    margin-right: 1rem;
+}
+
+
+/* ————————————————————————————— */
+/* BILLETE FULL WIDTH             */
+/* ————————————————————————————— */
+.billete-full {
+    background-color: var(--sand);
+    padding: 0;
+}
+
+#billete-full img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
