@@ -144,6 +144,184 @@ body {
 }
 
 
+/* ————————————————————————————— */
+/*  BOTÓN “LEER EL CUENTO” RESPONSIVE  */
+/* ————————————————————————————— */
+
+/* ≤ 991 px – TABLETS GRANDES */
+@media (max-width: 991.98px) {
+    .btn-leer-cuento {
+        font-size: .95rem;
+        padding: .5rem 1.5rem;
+        margin-left: 1.5rem;
+        /* menos sangría */
+    }
+}
+
+/* ≤ 767 px – TABLETS PEQUEÑAS / MÓVILES */
+@media (max-width: 767.98px) {
+    .btn-leer-cuento {
+        font-size: .9rem;
+        padding: .45rem 1.3rem;
+        margin: 1rem auto 0;
+        /* centrado, sin margen izq. */
+        display: block;
+        /* ocupa la línea completa */
+        max-width: 220px;
+        /* para que no se alargue demasiado */
+        text-align: center;
+    }
+}
+
+/* ≤ 575 px – TELÉFONOS PEQUEÑOS */
+@media (max-width: 575.98px) {
+    .btn-leer-cuento {
+        font-size: .85rem;
+        padding: .4rem 1.1rem;
+        max-width: 180px;
+    }
+}
+
+
+
+
+
+
+/* ——————————————————————————————————————— */
+/*  NAVBAR + HERO 100 % RESPONSIVE – “Laika”  */
+/* ——————————————————————————————————————— */
+
+/* ≥ 992 px  (escritorio)  – ya está armado ••• */
+
+
+/* ≤ 991 px  — TABLETS GRANDES ••••••••••••••• */
+@media (max-width: 991.98px) {
+
+    /* NAVBAR */
+    .navbar-laika {
+        height: 84px;
+    }
+
+    .navbar-laika .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .navbar-laika .nav-title .label {
+        font-size: .9rem;
+    }
+
+    .navbar-laika .nav-title .title {
+        font-size: 1.05rem;
+    }
+
+    /* HERO */
+    .hero-section {
+        padding: 3rem 0;
+    }
+
+    .hero-title {
+        font-size: clamp(3.2rem, 6vw, 4rem);
+        margin-left: 1.5rem;
+    }
+}
+
+
+/* ≤ 767 px  — TABLETS PQUEÑAS / MÓVILES ••••• */
+@media (max-width: 767.98px) {
+
+    /* NAVBAR compacto */
+    .navbar-laika {
+        height: 68px;
+    }
+
+    .navbar-laika .nav-arrows {
+        gap: .5rem;
+    }
+
+    .navbar-laika .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .navbar-laika .nav-title .label {
+        font-size: .8rem;
+    }
+
+    .navbar-laika .nav-title .title {
+        font-size: .95rem;
+    }
+
+    /* evita solapes con iconos laterales */
+    .navbar-laika .nav-title {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* HERO */
+    .hero-section {
+        padding: 2.5rem 0;
+    }
+
+    .hero-title {
+        font-size: clamp(2.4rem, 8vw, 3rem);
+        margin-left: 0;
+        text-align: center;
+    }
+
+    /* centra imagen y texto al apilarse */
+    #hero-laika .col-md-6 {
+        text-align: center !important;
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+/* ≤ 575 px  — TELÉFONOS PEQUEÑOS •••••••••••• */
+@media (max-width: 575.98px) {
+
+    /* NAVBAR aún más compacto */
+    .navbar-laika {
+        height: 60px;
+    }
+
+    .navbar-laika .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navbar-laika .nav-title .label {
+        font-size: .7rem;
+    }
+
+    .navbar-laika .nav-title .title {
+        font-size: .85rem;
+    }
+
+    .navbar-laika .nav-icons {
+        gap: .5rem;
+    }
+
+    /* HERO ajustado a la pantalla */
+    .hero-section {
+        padding: 2rem 0;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 9vw, 2.4rem);
+    }
+
+    .img-laika {
+        max-width: 80%;
+    }
+
+    /* reduce la ilustración */
+}
+
+
+
 
 
 /* ————————————————————————————— */
@@ -228,7 +406,7 @@ body {
 }
 
 #sobre-proyecto .herramienta-icon:hover {
-    transform: scale(5);
+    transform: scale(1.1);
 }
 
 
@@ -432,4 +610,40 @@ body {
     /* llena sin distorsión */
     pointer-events: none;
     /* cursor no interfiere con controles ocultos */
+}
+
+
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background: var(--negro);
+    color: var(--blanco);
+    border-top: 3px solid var(--negro);
+    font-size: .9rem;
+}
+
+.site-footer em {
+    font-style: italic;
+}
+
+.social-link i {
+    font-size: 1.25rem;
+    color: var(--blanco);
+    transition: transform .25s ease;
+}
+
+.social-link:hover i {
+    transform: scale(1.15);
+}
+
+
+
+/* ===== SECCIONES OCULTAS ===== */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
 }

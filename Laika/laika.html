@@ -202,16 +202,12 @@
     <!-- ===== VIDEO INTERACTIVO ===== -->
     <section id="video-laika" class="container-fluid px-0">
         <div class="video-wrapper">
-            <!-- Sustituya la ruta y el formato si usa WebM/HEVC -->
-            <video id="laika-video" src="img/LAIKAVIDEO-1.mp4" preload="metadata" playsinline muted loop>
-                <!-- loop evita ‘pantallazo’ al reiniciar -->
-                <!-- Fallback para navegadores muy antiguos -->
+            <video id="laika-video" src="img/LAIKAVIDEO-1.mp4" muted autoplay playsinline webkit-playsinline loop
+                preload="metadata">
                 Su navegador no admite video HTML5.
             </video>
         </div>
     </section>
-
-
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
@@ -222,8 +218,10 @@
                 </div>
 
                 <div class="col-12 col-lg-4 d-flex justify-content-center gap-3 mb-2 mb-lg-0">
-                    <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="social-link circle"><i class="bi bi-linkedin"></i></a>
+                    <a href="https://www.instagram.com/bysashiii/" class="social-link"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/scarlethmassou/"" class=" social-link circle"><i
+                            class="bi bi-linkedin"></i></a>
                 </div>
 
                 <div class="col-12 col-lg-4 text-lg-end">
@@ -232,6 +230,7 @@
             </div>
         </div>
     </footer>
+
 
 
 
