@@ -51,13 +51,14 @@ body {
 
 .nav-title .label {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
 .nav-title .title {
     margin: 0;
     font-weight: 500;
+    font-size: 1.2rem;
 }
 
 /* Iconos alineados a la derecha */
@@ -77,6 +78,118 @@ body {
     filter: brightness(0) invert(1);
 }
 
+/* ——————————————————————————————————— */
+/*   RESPONSIVE  NAVBAR “FANCY QUALITY”   */
+/* ——————————————————————————————————— */
+
+/* ≥ 992 px – ESCRITORIO  (ya está) */
+/* -------------------------------- */
+
+
+
+/* ≤ 991 px – TABLETS GRANDES */
+/* -------------------------- */
+@media (max-width: 991.98px) {
+
+    .navbar-exacto {
+        height: 84px;
+    }
+
+    /* íconos y flechas algo más pequeños */
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* tipografías reducidas */
+    .nav-title .label {
+        font-size: .9rem;
+    }
+
+    .nav-title .title {
+        font-size: 1.05rem;
+    }
+}
+
+
+
+/* ≤ 767 px – TABLETS PEQUEÑAS / MÓVILES */
+/* ------------------------------------- */
+@media (max-width: 767.98px) {
+
+    .navbar-exacto {
+        height: 68px;
+    }
+
+    /* estrechar el bloque de flechas + título */
+    .nav-arrows {
+        gap: .5rem;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-title .label {
+        font-size: .8rem;
+    }
+
+    .nav-title .title {
+        font-size: .95rem;
+    }
+
+    /* evitar que el título choque con los iconos laterales */
+    .nav-title {
+        max-width: 120px;
+        /* limite opcional */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+
+
+/* ≤ 575 px – TELÉFONOS PEQUEÑOS */
+/* ----------------------------- */
+@media (max-width: 575.98px) {
+
+    /* aún más compacto */
+    .navbar-exacto {
+        height: 60px;
+    }
+
+    .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-title .label {
+        font-size: .7rem;
+    }
+
+    .nav-title .title {
+        font-size: .85rem;
+    }
+
+    /* si la barra queda muy apretada, reduzca el gap de iconos */
+    .nav-icons {
+        gap: .5rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -88,11 +201,12 @@ body {
 /* Título “Sobre el proyecto” */
 #sobre-proyecto .titulo-proyecto {
     font-family: 'Anton', sans-serif;
-    font-size: 3rem;
+    font-size: 4.5rem;
     line-height: 1.1;
     color: var(--verde);
     text-transform: uppercase;
     font-style: italic;
+    margin-top: 3rem;
 }
 
 /* Párrafos */
@@ -119,6 +233,19 @@ body {
     gap: 1rem;
 }
 
+#sobre-proyecto .iconos-herramientas {
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+    transition: transform 0.2s ease;
+}
+
+#sobre-proyecto .herramienta-icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+
 
 
 /* El propio SVG dentro */
@@ -128,99 +255,240 @@ body {
     height: var(--size);
 }
 
+/* ————————————————————————————————————— */
+/*  RESPONSIVE  “SOBRE EL PROYECTO” FANCY   */
+/* ————————————————————————————————————— */
 
-
-/* Sección galería de imágenes */
-#galeria {
-    background: #ffffff;
-}
-
-/* 1) Contenedor cuadrado sin altura fija */
-#galeria .galeria-item {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    /* cuadrado perfecto */
-    overflow: hidden;
-    border-radius: 0.5rem;
-    margin: 0;
-    /* si tienes gutters, podrían venir de Bootstrap */
-    padding: 0;
-}
-
-/* 2) Imagen cubriendo todo el contenedor */
-#galeria .galeria-item img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* recorta para llenar entero */
-    transition: transform .3s ease;
-}
-
-/* 3) Hover si quieres */
-#galeria .galeria-item img:hover {
-    transform: scale(1.05);
-}
+/* ≥ 992 px – ESCRITORIO (lo que ya tiene) */
+/* --------------------------------------- */
 
 
 
+/* ≤ 991 px – TABLETS GRANDES */
+/* -------------------------- */
+@media (max-width: 991.98px) {
 
-/* ---------------------------------------------------
-   Sección de la jarra que “invade” la sección anterior
-   --------------------------------------------------- */
-#jarra-invade {
-    position: relative;
-    /* ajusta si quieres más espacio abajo */
-    padding-bottom: 5rem;
-}
+    /* Título algo menor y sin tanto margen superior */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: clamp(3rem, 6vw, 4rem);
+        margin-top: 2.5rem;
+    }
 
-/* 1) FONDO VERDE */
-#jarra-invade .bg-verde {
-    background-color: var(--verde);
-    height: 300px;
-    width: 100%;
-}
-
-/* 2) IMAGEN posiconada encima */
-#jarra-invade .jarra-invade-img {
-    position: absolute;
-    top: 36.0px;
-    /* punto de anclaje arriba */
-    left: 50%;
-    /* centro horizontal */
-    transform: translate(-50%, -50%);
-    /* -50% arriba para que “invada” justo la mitad superior */
-    max-width: 60rem;
-    /* o el ancho que necesites */
-    width: 100%;
-    /* responsivo */
-    z-index: 10;
-    /* que quede encima del fondo */
-    transition: transform .3s;
-}
-
-/* hover opcional */
-#jarra-invade .jarra-invade-img:hover {
-    transform: translate(-50%, -52%);
-}
-
-
-/* Hover opcional */
-#jarra-invade .jarra-invade:hover {
-    transform: scale(1.02);
-}
-
-/* Ajustes responsive */
-@media (max-width: 768px) {
-    #jarra-invade .jarra-invade {
-        max-width: 250px;
-        margin-top: -100px;
+    /* Iconos 42 px */
+    #sobre-proyecto .herramienta-icon {
+        --size: 42px;
     }
 }
 
+
+
+/* ≤ 767 px – TABLETS PEQUEÑAS / MÓVILES */
+/* ------------------------------------- */
+@media (max-width: 767.98px) {
+
+    /* Centrar el título y reducir tamaño */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: clamp(2.4rem, 8vw, 3rem);
+        text-align: center;
+        margin: 2rem 0 1.5rem;
+    }
+
+    /* Pasar textos y listas a alineación izquierda
+     para evitar líneas demasiado largas */
+    #sobre-proyecto p,
+    #sobre-proyecto .lista-tecnologias {
+        text-align: left;
+    }
+
+    /* Íconos envueltos y centrados */
+    #sobre-proyecto .iconos-herramientas {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Iconos 36 px */
+    #sobre-proyecto .herramienta-icon {
+        --size: 36px;
+    }
+}
+
+
+
+/* ≤ 575 px – TELÉFONOS PEQUEÑOS */
+/* ----------------------------- */
+@media (max-width: 575.98px) {
+
+    /* Reducir padding vertical de la sección */
+    #sobre-proyecto {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    /* Título aún más compacto */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: 4rem;
+    }
+
+    /* Lista más apretada */
+    #sobre-proyecto .lista-tecnologias li {
+        margin-bottom: .3rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* ————————————————————————————— */
+/* GALERÍA DE IMÁGENES – sin recorte */
+/* ————————————————————————————— */
+
+#galeria {
+    background: #fff;
+}
+
+/* Figura sin padding extra ni aspect-ratio */
+#galeria .galeria-item {
+    margin: 0;
+    /* reset <figure> */
+    padding: 0;
+    overflow: hidden;
+    /* por si alguna foto tuviera bordes blancos */
+    border-radius: .5rem;
+    /* esquina suave opcional */
+}
+
+/* Imagen fluida, llena su columna y mantiene proporción */
+#galeria .galeria-item img {
+    width: 100%;
+    height: auto;
+    /* ¡nada de height 100 %! */
+    display: block;
+    /* elimina el “gap” inline-block */
+}
+
+/* Hover opcional: zoom muy leve sin recortar la foto */
+#galeria .galeria-item img:hover {
+    transform: scale(1.02);
+    transition: transform .3s ease;
+}
+
+/* Gutters algo menores en móviles para aprovechar el ancho */
+@media(max-width:575.98px) {
+    #galeria .row {
+        --bs-gutter-x: 1rem;
+        --bs-gutter-y: 1rem;
+    }
+}
+
+
+
+
+
+/* ——————————————————————————————————— */
+/*  JARRA “INVADIENDO” – BASE DESKTOP      */
+/* ——————————————————————————————————— */
+
+#jarra-invade {
+    position: relative;
+    padding-bottom: 5rem;
+    /* espacio para la parte baja de la jarra */
+}
+
+/* 1) Franja de fondo verde */
+#jarra-invade .bg-verde {
+    background-color: var(--verde);
+    height: 300px;
+    /* escritorio */
+    width: 100%;
+}
+
+/* 2) Imagen central – invade 50 % la franja verde */
+#jarra-invade .jarra-invade-img {
+    position: absolute;
+    top: 36px;
+    /* ancla 36 px debajo del borde superior */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 60rem;
+    /* ≈ 960 px */
+    z-index: 10;
+    transition: transform .3s;
+}
+
+/* Hover (solo visible en escritorio) */
+@media (hover:hover) {
+    #jarra-invade .jarra-invade-img:hover {
+        transform: translate(-50%, -52%);
+        /* leve realce */
+    }
+}
+
+/* ——————————————————————————————————— */
+/*  ≤ 991 px – TABLETS GRANDES            */
+/* ——————————————————————————————————— */
+@media (max-width:991.98px) {
+
+    #jarra-invade .bg-verde {
+        height: 240px;
+    }
+
+    #jarra-invade .jarra-invade-img {
+        top: 28px;
+        max-width: 46rem;
+        /* ≈ 736 px */
+    }
+}
+
+/* ——————————————————————————————————— */
+/*  ≤ 767 px – TABLETS PEQUEÑAS / MÓVIL   */
+/* ——————————————————————————————————— */
+@media (max-width:767.98px) {
+
+    #jarra-invade {
+        padding-bottom: 3.5rem;
+    }
+
+    #jarra-invade .bg-verde {
+        height: 200px;
+    }
+
+    #jarra-invade .jarra-invade-img {
+        top: 22px;
+        max-width: 85%;
+        /* usa ancho relativo para mayor fluidez */
+        transform: translate(-50%, -45%);
+        /* invade un poco menos */
+    }
+}
+
+/* ——————————————————————————————————— */
+/*  ≤ 575 px – TELÉFONOS PEQUEÑOS         */
+/* ——————————————————————————————————— */
+@media (max-width:575.98px) {
+
+    #jarra-invade {
+        padding-bottom: -2.5px;
+        
+    }
+
+    #jarra-invade .bg-verde {
+        height: 160px;
+        margin-bottom: -60px;
+    }
+
+    #jarra-invade .jarra-invade-img {
+        top: 18px;
+        max-width: 90%;
+        transform: translate(-50%, -40%);
+    }
+}
 
 
 
@@ -266,4 +534,109 @@ body {
     height: 100%;
     object-fit: cover;
     /* empieza pausado, luego JS lo reproducirá en hover */
+}
+
+
+/* ————————————————————————————————— */
+/*  RESPUESTA PARA imagen-video      */
+/* ————————————————————————————————— */
+
+/* ===== DESKTOP (≥ 992 px) – sin cambios */
+
+
+/* ≤ 991 px – TABLETS GRANDES */
+/* ------------------------- */
+@media (max-width:991.98px) {
+
+    /* Margen negativo más suave: evita “salto” excesivo */
+    #imagen-video {
+        margin-top: -3rem;
+    }
+
+    /* Figuras pierden la altura obligatoria para
+     permitir que cada imagen muestre su proporción */
+    #imagen-video .fig-iso {
+        height: auto;
+    }
+}
+
+
+/* ≤ 767 px – TABLETS PEQUEÑAS y TELÉFONOS */
+/* -------------------------------------- */
+@media (max-width:767.98px) {
+
+    /* Sin margen negativo: apilado natural */
+    #imagen-video {
+        margin-top: 0;
+        padding-top: 1rem;
+    }
+
+    /* D-flex ya no es necesario; que cada columna
+     fluya con su contenido */
+    #imagen-video .col-12.col-md-6 {
+        display: block !important;
+    }
+
+    /* Las imágenes fluyen, conservan proporción */
+    #imagen-video .fig-iso,
+    #imagen-video .fig-iso img.cover {
+        height: auto;
+        object-fit: contain;
+        /* evita recorte severo */
+    }
+
+    /* El contenedor 16:9 se mantiene, pero si quieres
+     que el video ocupe menos alto en móvil: */
+    #imagen-video .video-wrap {
+        padding-top: 60%;
+    }
+
+    /* 1:1.66 */
+}
+
+
+/* ≤ 575 px – TELÉFONOS PEQUEÑOS */
+/* ----------------------------- */
+@media (max-width:575.98px) {
+
+    #imagen-video .video-wrap {
+        padding-top: 70%;
+    }
+
+    /* aún más compacto */
+}
+
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+    background: var(--negro);
+    color: var(--blanco);
+    border-top: 3px solid var(--negro);
+    font-size: .9rem;
+}
+
+.site-footer em {
+    font-style: italic;
+}
+
+.social-link i {
+    font-size: 1.25rem;
+    color: var(--blanco);
+    transition: transform .25s ease;
+}
+
+.social-link:hover i {
+    transform: scale(1.15);
+}
+
+
+
+/* ===== SECCIONES OCULTAS ===== */
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
 }

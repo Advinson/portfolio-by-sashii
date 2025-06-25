@@ -120,7 +120,7 @@
     <!-- GALERÍA DE IMÁGENES -->
     <section id="galeria" class="py-5">
         <div class="container-fluid">
-            <div class="row gx-4 gy-4">
+            <div class="row gx-0 gy-0">
                 <!-- Item 1 -->
                 <div class="col-12 col-md-6">
                     <figure class="galeria-item">
@@ -141,7 +141,7 @@
                 </div>
                 <!-- Item 4 -->
                 <div class="col-12 col-md-6">
-                    <figure class="galeria-item">
+                    <figure class="galeria-ite">
                         <img src="img/hojas.png" alt="Descripción imagen 4" class="img-fluid" />
                     </figure>
                 </div>
@@ -200,8 +200,10 @@
                         <!-- Fila 2: video -->
                         <div class="col-12">
                             <div class="video-wrap position-relative">
-                                <video src="img/videofinal.mp4" muted loop playsinline preload="metadata"
-                                    class="video-loop position-absolute top-0 start-0 w-100 h-100"></video>
+                                <video id="video-fancy" src="img/videofinal.mp4" muted autoplay playsinline
+                                    webkit-playsinline loop preload="metadata"
+                                    class="video-loop position-absolute top-0 start-0 w-100 h-100">
+                                </video>
                             </div>
                         </div>
 
@@ -217,44 +219,32 @@
 
 
 
-    <!-- FOOTER -->
-    <footer class="site-footer border-top-2">
-        <div class="container py-3">
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container-xxl py-2">
             <div class="row align-items-center text-center text-lg-start gx-0">
-
-                <!-- Izquierda -->
-                <div class="col-12 col-lg-4 mb-3 mb-lg-0">
-                    <span class="copyright-icon me-2 bi bi-c-circle"></span>
-                    <em>copyright bysashi 2025</em>
+                <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+                    <i class="bi bi-c-circle me-2"></i><em>copyright & design bysashii 2025</em>
                 </div>
 
-                <!-- Centro – Redes -->
-                <div class="col-12 col-lg-4 mb-3 mb-lg-0 d-flex justify-content-center gap-3">
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/bysashiii/" target="_blank" rel="noopener" class="social-link"
-                        aria-label="Instagram">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-
-                    <!-- LinkedIn (círculo) -->
-                    <a href="https://www.linkedin.com/in/scarlethmassou/" target="_blank" rel="noopener"
-                        class="social-link circle" aria-label="LinkedIn">
-                        <i class="bi bi-linkedin"></i>
-                    </a>
+                <div class="col-12 col-lg-4 d-flex justify-content-center gap-3 mb-2 mb-lg-0">
+                    <a href="https://www.instagram.com/bysashiii/" class="social-link"><i
+                            class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/scarlethmassou/"" class=" social-link circle"><i
+                            class="bi bi-linkedin"></i></a>
                 </div>
 
-                <!-- Derecha -->
-                <div class="col-12 col-lg-4">
+                <div class="col-12 col-lg-4 text-lg-end">
                     <em>website made by advinson</em>
                 </div>
-
             </div>
         </div>
     </footer>
 
 
-
     <!-- Script para numeración interactiva -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="js/fq.js"></script>
 </body>
 
