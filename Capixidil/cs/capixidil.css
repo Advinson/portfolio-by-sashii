@@ -34,10 +34,8 @@ body {
 .navbar-capixidil .nav-container {
     width: 100%;
     height: 100%;
-    position: relative;
 }
 
-/* Centrar flechas + título */
 .navbar-capixidil .nav-arrows {
     position: absolute;
     top: 50%;
@@ -45,34 +43,31 @@ body {
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: .75rem;
 }
 
 .navbar-capixidil .nav-title p {
     margin: 0;
-    color: var(--blanco);
-    text-align: center;
     line-height: 1.1;
+    text-align: center;
+    color: var(--blanco);
 }
 
 .navbar-capixidil .nav-title .label {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    font-size: 1rem;
+    font: 300 1rem 'Poppins', sans-serif;
 }
 
 .navbar-capixidil .nav-title .title {
-    font-weight: 300;
-    font-size: 1.2rem;
+    font: 300 1.2rem 'Poppins', sans-serif;
 }
 
-/* Iconos de navegación */
 .navbar-capixidil .nav-icons {
     position: absolute;
     top: 50%;
     right: 1rem;
     transform: translateY(-50%);
     display: flex;
+    align-items: center;
     gap: 1rem;
 }
 
@@ -82,22 +77,87 @@ body {
     filter: brightness(0) invert(1);
 }
 
-/* Iconos alineados a la derecha */
-.nav-icons {
-    position: absolute;
-    top: 50%;
-    right: 1rem;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+
+
+
+/* ——————————————————————————— */
+/* ≤ 991 px  (tablets)          */
+/* ——————————————————————————— */
+@media (max-width:991.98px) {
+    .navbar-capixidil {
+        height: 84px;
+    }
+
+    .navbar-capixidil .icon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .navbar-capixidil .nav-title .label {
+        font-size: .9rem;
+    }
+
+    .navbar-capixidil .nav-title .title {
+        font-size: 1.05rem;
+    }
 }
 
-.icon {
-    width: 35px;
-    height: 35px;
-    filter: brightness(0) invert(1);
+/* ——————————————————————————— */
+/* ≤ 767 px  (móviles)          */
+/* ——————————————————————————— */
+@media (max-width:767.98px) {
+    .navbar-capixidil {
+        height: 68px;
+    }
+
+    /* Reducir espacio entre flechas y título para que todo quepa */
+    .navbar-capixidil .nav-arrows {
+        gap: .5rem;
+    }
+
+    .navbar-capixidil .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .navbar-capixidil .nav-title .label {
+        font-size: .8rem;
+    }
+
+    .navbar-capixidil .nav-title .title {
+        font-size: .95rem;
+    }
+
+    /* Evitar solapes: limitar ancho del título y cortar con … si es largo */
+    .navbar-capixidil .nav-title {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
 }
+
+/* ——————————————————————————— */
+/* ≤ 575 px  (teléfonos pequeños)*/
+/* ——————————————————————————— */
+@media (max-width:575.98px) {
+
+    /* Iconos aún más pequeños */
+    .navbar-capixidil .icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Bajar todavía más las fuentes */
+    .navbar-capixidil .nav-title .label {
+        font-size: .75rem;
+    }
+
+    .navbar-capixidil .nav-title .title {
+        font-size: .9rem;
+    }
+}
+
 
 
 
@@ -178,13 +238,95 @@ body {
 }
 
 
-
 /* Tamaño interno del SVG */
 #sobre-proyecto .herramienta-icon {
-    --size: 50px;
+    --size: 60px;
     width: var(--size);
     height: var(--size);
+    transition: transform .3s ease;
 }
+
+#sobre-proyecto .herramienta-icon:hover {
+    transform: scale(1.1);
+}
+
+
+/* ————————————————————————————————————— */
+/*  BREAKPOINTS PARA “SOBRE EL PROYECTO”   */
+/* ————————————————————————————————————— */
+
+/* ≥ 992 px  –– ESCRITORIO (lo que ya tiene) ----------------------- */
+/* No cambiamos nada aquí.                                           */
+
+
+/* ≤ 991 px  –– TABLETS ------------------------------------------- */
+@media (max-width: 991.98px) {
+
+    /* Título un poco menor y sin sangría excesiva */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: clamp(3.2rem, 6vw, 4rem);
+        margin-top: 3rem;
+        margin-left: 2rem;
+    }
+
+    /* Iconos algo más pequeños */
+    #sobre-proyecto .herramienta-icon {
+        --size: 42px;
+    }
+}
+
+
+/* ≤ 767 px  –– MÓVILES ------------------------------------------- */
+@media (max-width: 767.98px) {
+
+    /* Centrar el título y reducir márgenes laterales */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: clamp(2.6rem, 8vw, 3.2rem);
+        margin: 2rem 0 1.5rem 0;
+        text-align: center;
+    }
+
+    /* Alinear párrafos y listas a la izquierda (mejor legibilidad
+     en pantallas estrechas) */
+    #sobre-proyecto p,
+    #sobre-proyecto .lista-tecnologias {
+        text-align: justify;
+        padding: 0.4rem;
+    }
+
+    /* Iconos: distribuir en fila y permitir salto de línea */
+    #sobre-proyecto .iconos-herramientas {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Más compactos en móvil */
+    #sobre-proyecto .herramienta-icon {
+        --size: 36px;
+    }
+}
+
+
+/* ≤ 575 px  –– TELÉFONOS PEQUEÑOS -------------------------------- */
+@media (max-width: 575.98px) {
+
+    /* Un poco menos de espacio vertical */
+    #sobre-proyecto {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    /* Título aún menor si es necesario */
+    #sobre-proyecto .titulo-proyecto {
+        font-size: 4rem;
+    }
+
+    /* Lista en columna para no ocupar ancho extra */
+    #sobre-proyecto .lista-tecnologias li {
+        margin-bottom: .3rem;
+    }
+}
+
 
 
 
@@ -262,6 +404,10 @@ body {
     background-color: var(--blanco);
 }
 
+#capix-accion .video-col {
+    display: flex;
+}
+
 /* Las dos filas de imágenes con fondo blanco */
 #capix-accion .bg-white {
     background-color: var(--blanco);
@@ -278,6 +424,7 @@ body {
 /* Video responsivo */
 #capix-accion .video-hover {
     object-fit: cover;
+
 }
 
 
